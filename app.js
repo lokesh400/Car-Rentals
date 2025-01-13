@@ -12,10 +12,7 @@ const port = 3000;
 const Car = require('./models/car');
 
 // Connect to MongoDB
-mongoose.connect(process.env.mongo_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.mongo_url)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log('Failed to connect to MongoDB:', err));
 
@@ -39,7 +36,7 @@ app.use(session({
   cookie: {
     maxAge: 1000 * 60 * 60 * 24, // 24 hours session expiry
     httpOnly: true, // Prevent XSS
-    secure: process.env.NODE_ENV === 'production', // Set to true for HTTPS
+    secure: process.env.NODE_ENV,
     sameSite: 'strict', // Prevent CSRF
   },
 }));
@@ -154,7 +151,6 @@ app.use("/",adminrouter);
 app.get('/admin/edit-car/:id', async (req, res) => {
   try {
     const car = await Car.findById(req.params.id);
-    console.log(car);
     res.render('edit-car', { car });
   } catch (err) {
     console.log(err);
