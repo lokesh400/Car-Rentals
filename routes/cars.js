@@ -63,7 +63,7 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
           console.log('Local file deleted successfully');
         }
       });
-      const newCar = new Car({ name, brand, year, price : pricePerDay,photo:imageUrl });
+      const newCar = new Car({ name, brand, year,pricePerDay,photo:imageUrl });
       await newCar.save();
       res.status(200).json({ message: 'Car added successfully!' });
     } catch (error) {
@@ -71,5 +71,41 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
       res.status(500).json({ message: 'Upload failed: ' + error.message });
     }
   });
+ 
+ 
+ // Edit car details
+ router.get('/admin/edit-car/:id', async (req, res) => {
+   try {
+     const car = await Car.findById(req.params.id);
+     res.render('edit-car', { car });
+   } catch (err) {
+     console.log(err);
+     res.status(500).send('Server Error');
+   }
+ });
+ 
+ // Handle updating car details
+ router.post('/admin/edit-car/:id', async (req, res) => {
+   const { name, brand, year, pricePerDay } = req.body;
+   try {
+     await Car.findByIdAndUpdate(req.params.id, { name, brand, year, pricePerDay });
+     res.redirect('/admin');
+   } catch (err) {
+     console.log(err);
+     res.status(500).send('Server Error');
+   }
+ });
+ 
+ // Delete car
+ router.post('/admin/delete-car/:id', async (req, res) => {
+   try {
+     await Car.findByIdAndDelete(req.params.id);
+     res.redirect('/admin');
+   } catch (err) {
+     console.log(err);
+     res.status(500).send('Server Error');
+   }
+ });
+  
   
   module.exports = router;
