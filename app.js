@@ -1,7 +1,7 @@
 const express = require("express");
 require('dotenv').config();
 const app = express();
-const port = 666;
+const port = 777;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -11,7 +11,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 
-const User = require('./models/User');
+const User = require('./models/user');
 const Car = require('./models/car');
 
 const userrouter = require("./routes/user.js");
