@@ -1,160 +1,129 @@
-const express = require('express');
+const express = require("express");
 require('dotenv').config();
-const mongoose = require('mongoose');
-const session = require('express-session');
-const flash = require('connect-flash');
-const path = require('path');
-const bcrypt = require('bcryptjs');
-const User = require('./models/user');  // User model
 const app = express();
-const port = 3000;
+const port = 666;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const path = require("path");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
+const passport = require("passport");
+const localStrategy = require("passport-local");
 
+const User = require('./models/User');
 const Car = require('./models/car');
+
+const userrouter = require("./routes/user.js");
+const otprouter = require("./routes/otp.js");
+const adminrouter = require("./routes/cars.js");
+
+
+
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const upload = multer({ dest: 'uploads/' });
+const fs = require('fs');
+const { error } = require("console");
+
+// Configure Cloudinary
+cloudinary.config({
+    cloud_name:process.env.cloud_name, 
+    api_key:process.env.api_key, 
+    api_secret:process.env.api_secret,
+});
 
 // Connect to MongoDB
 mongoose.connect(process.env.mongo_url)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.log('Failed to connect to MongoDB:', err));
+.then(() => console.log('MongoDB connected successfully!'))
+.catch(err => console.log('Error connecting to MongoDB: ', err));;
 
-// Middleware setup
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Set up EJS view engine
-app.set('view engine', 'ejs');
-app.set('views', './views');  // Directory where EJS files are stored
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.use(express.json());
 
-// Flash messages middleware
+const store = MongoStore.create({
+  mongoUrl:process.env.mongo_url,
+  crypto:{
+    secret: process.env.secret,
+  },
+  touchAfter: 24*3600
+})
+
+store.on("error", ()=>{
+  console.log("error in connecting mongo session store",error)
+})
+
+const sessionOptions = {
+  store,
+  secret: process.env.secret,
+  resave:false,
+  saveUninitialized:true,
+  cookie:{
+    expires: Date.now() + 3*24*60*60*1000,
+    maxAge: 3*24*60*60*1000,
+    httpOnly: true,
+  }
+}
+
+const Upload = {
+  uploadFile: async (filePath) => {
+    try {
+      const result = await cloudinary.uploader.upload(filePath);
+      return result; // Return the upload result
+    } catch (error) {
+      throw new Error('Upload failed: ' + error.message);
+    }
+  },
+};
+
+
+app.use(session(sessionOptions));
 app.use(flash());
 
-// Session management setup
-app.use(session({
-  secret: 'secret-key', // Use a strong secret key
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 24 hours session expiry
-    httpOnly: true, // Prevent XSS
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict', // Prevent CSRF
-  },
-}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-
-// Global middleware to handle flash messages and user sessions
 app.use((req, res, next) => {
-  res.locals.user = req.session.user || null; // User object in session
-  res.locals.error_msg = req.flash('error_msg');  // Flash error messages
-  res.locals.success_msg = req.flash('success_msg');  // Flash success messages
-  next();
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.currUser = req.user;
+    next();
 });
 
-const adminrouter = require("./routes/cars.js");
-
-app.use("/",adminrouter);
-
-
-// Middleware to protect routes that need authentication
 function ensureAuthenticated(req, res, next) {
-  if (req.session.user) {
+  if (req.isAuthenticated()) {
     return next();
   }
-  req.flash('error_msg', 'You must be logged in to view that page');
-  res.redirect('/auth/login');
+  res.redirect('/user/login');
+}
+
+function isAdmin(req, res, next) {
+  if (req.isAuthenticated() && req.user.role === 'admin') {
+    return next();
+  }
+  res.render("./error/accessdenied.ejs");
 }
 
 
-// Register page
-app.get('/auth/register', (req, res) => {
-  res.render('register');
-});
+app.use("/user",userrouter);
+app.use("/user",otprouter);
+app.use("/",adminrouter);
 
-// Register route
-app.post('/auth/register', async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
 
-  // Basic validation
-  if (password !== confirmPassword) {
-    req.flash('error_msg', 'Passwords do not match');
-    return res.redirect('/auth/register');
-  }
-  try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      req.flash('error_msg', 'Email is already taken');
-      return res.redirect('/auth/register');
-    }
-    const newUser = new User({ name, email, username: email, password });
-    await newUser.save();
-    req.flash('success_msg', 'Registration successful! Please log in.');
-    res.redirect('/auth/login');
-  } catch (err) {
-    console.error(err);
-    req.flash('error_msg', 'Error during registration');
-    res.redirect('/auth/register');
-  }
-});
+app.get("/", async (req,res)=>{
+  const cars = await Car.find({});
+    res.render("./index.ejs",{cars});
+})
 
-// Login page
-app.get('/auth/login', (req, res) => {
-  res.render('login');
-});
 
-// Login route
-app.post('/auth/login', async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      req.flash('error_msg', 'Invalid email or password');
-      return res.redirect('/auth/login');
-    }
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      req.flash('error_msg', 'Invalid email or password');
-      return res.redirect('/auth/login');
-    }
-    // Store user info in session
-    req.session.user = user;
-    // Redirect to admin
-    res.redirect('/admin');
-  } catch (err) {
-    console.log(err);
-    req.flash('error_msg', 'Error during login');
-    res.redirect('/auth/login');
-  }
-});
+  
 
-// Logout route
-app.get('/auth/logout', (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      return res.redirect('/');
-    }
-    res.redirect('/');
-  });
-});
 
-// Home route (public)
-app.get('/', async(req, res) => {
-  const cars = await Car.find();
-  res.render('index',{ cars });
-});
-
-// Admin route (protected by authentication)
-app.get('/admin', ensureAuthenticated, async (req, res) => {
-  console.log(req.session.user);
-   if (req.session.user.role === 'admin') {
-     const cars = await Car.find();
-     res.render('admin-dashboard', { cars });
-  } else {
-    req.flash('error_msg', 'You are not authorized to access this page');
-    res.redirect('/');
-  }
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
