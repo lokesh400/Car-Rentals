@@ -1,163 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add New Car</title>
-  <style>
-    /* Reset some default styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
-      padding: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 600px;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      animation: slideIn 1s ease-out forwards;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #555;
-      opacity: 0;
-      animation: fadeIn 1s 0.5s forwards;
-    }
-
-    input[type="text"], input[type="number"], input[type="file"] {
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease-in-out;
-      outline: none;
-    }
-
-    input[type="text"]:focus, input[type="number"]:focus, input[type="file"]:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-
-    button {
-      padding: 12px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-      opacity: 0;
-      animation: fadeIn 1s 0.7s forwards;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(50px);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-
-    /* Optional styles for file input */
-    input[type="file"] {
-      cursor: pointer;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      label {
-        font-size: 1rem;
-      }
-
-      input[type="text"], input[type="number"], input[type="file"] {
-        font-size: 0.9rem;
-      }
-
-      button {
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Add New Car</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius='medium'></script>
 </head>
-<body>
-  <div class="container">
-    <h1>Add New Car</h1>
-    <form action="/admin/add-car" method="POST" enctype="multipart/form-data">
-      <label for="name">Car Name:</label>
-      <input type="text" name="name" placeholder="Enter car name" required><br>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-xl shadow-sm p-8">            
+          <h1 class="text-2xl font-semibold text-gray-900 mb-8">Add New Car</h1>
+            
+            <form action="/admin/add-car" method="POST" enctype="multipart/form-data" class="space-y-6">                
+              <div class="space-y-6">
+                    <div class="relative">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Car Name</label>
+                        <div class="relative">
+                            <i class="fas fa-car absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" name="name" id="name" required 
+                                class="block w-full pl-10 !rounded-button border-gray-200 shadow-sm focus:border-custom focus:ring-custom text-sm"
+                                placeholder="Enter car name">                       
+                        </div>
+                    </div>
 
-      <label for="brand">Car Brand:</label>
-      <input type="text" name="brand" placeholder="Enter car brand" required><br>
+                    <div class="relative">
+                        <label for="brand" class="block text-sm font-medium text-gray-700 mb-2">Car Brand</label>
+                        <div class="relative">
+                            <i class="fas fa-building absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" name="brand" id="brand" required 
+                                class="block w-full pl-10 !rounded-button border-gray-200 shadow-sm focus:border-custom focus:ring-custom text-sm"
+                                placeholder="Enter car brand">                        
+                              </div>
+                    </div>
 
-      <label for="year">Year:</label>
-      <input type="number" name="year" placeholder="Enter car year" required><br>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="relative">                            
+                          <label for="year" class="block text-sm font-medium text-gray-700 mb-2">Year</label>
+                            <div class="relative">                                
+                              <i class="fas fa-calendar absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="number" name="year" id="year" required min="1900" max="2024"
+                                    class="block w-full pl-10 !rounded-button border-gray-200 shadow-sm focus:border-custom focus:ring-custom text-sm"
+                                    placeholder="Enter year">                            
+                                  </div>
+                        </div>
 
-      <label for="pricePerDay">Price Per Day:</label>
-      <input type="number" name="pricePerDay" placeholder="Enter price per day" required><br>
+                        <div class="relative">
+                            <label for="pricePerDay" class="block text-sm font-medium text-gray-700 mb-2">Price Per Day</label>
+                            <div class="relative">
+                                <i class="fas fa-dollar-sign absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="number" name="pricePerDay" id="pricePerDay" required min="0" step="0.01"
+                                    class="block w-full pl-10 !rounded-button border-gray-200 shadow-sm focus:border-custom focus:ring-custom text-sm"
+                                    placeholder="Enter price per day">                            
+                                  </div>
+                        </div>
+                    </div>
 
-      <label for="file">Car Image:</label>
-      <input type="file" name="file" id="file-input" required><br>
+                    <div class="relative">                        
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Car Image</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed !rounded-button border-gray-300 relative">                            
+                          <div class="space-y-1 text-center">
+                                <div class="mx-auto h-24 w-24 text-gray-400">                                    
+                                  <i class="fas fa-cloud-upload-alt text-4xl mb-4"></i>
+                                    <img id="preview" class="h-24 w-24 object-cover rounded-lg hidden">                                
+                                  </div>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-input" class="relative cursor-pointer bg-white rounded-md font-medium text-custom hover:text-custom focus-within:outline-none">                                        
+                                      <span>Upload a file</span>
+                                        <input id="file-input" name="file" type="file" class="sr-only" accept="image/*" required>                                    
+                                      </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>                                
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                            </div>                        
+                          </div>
+                    </div>
+                </div>
 
-      <button type="submit">Add Car</button>
-    </form>
-  </div>
-</body>
+                <div class="flex justify-end mt-8">                    
+                  <button type="button" class="mr-3 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 !rounded-button shadow-sm hover:bg-gray-50">                        
+                    Cancel
+                    </button>
+                    <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-custom !rounded-button shadow-sm hover:bg-custom/90">                        
+                      Add Car
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>    <script>
+        const fileInput = document.getElementById('file-input');
+        const preview = document.getElementById('preview');
+        const uploadIcon = document.querySelector('.fa-cloud-upload-alt');
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    uploadIcon.classList.add('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script></body>
 </html>

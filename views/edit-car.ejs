@@ -1,249 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Car</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-  <style>
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f7fc;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    h1, h2 {
-      color: #333;
-      text-align: center;
-    }
-
-    /* Main Container */
-    .form-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 900px;
-      margin-top: 30px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: #555;
-    }
-
-    /* Form Styles */
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-    }
-
-    .form-group input[type="file"] {
-      padding: 8px;
-      font-size: 1rem;
-    }
-
-    .form-group textarea {
-      height: 100px;
-    }
-
-    /* Button Styling */
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-      transform: translateY(-3px);
-    }
-
-    /* Image Preview */
-    .image-preview {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin-top: 10px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
-      .form-group input, .form-group select, .form-group textarea {
-        font-size: 0.9rem;
-      }
-
-      button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-
-      .form-group input, .form-group select, .form-group textarea {
-        font-size: 0.85rem;
-      }
-
-      button {
-        font-size: 0.85rem;
-        padding: 6px 12px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Edit Car Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius='medium'></script>
 </head>
-<body>
-  <div class="form-container">
-    <h1>Edit Car</h1>
-    <form action="/admin/update-car/<%= car._id %>?_method=PUT" method="POST">
-      <div class="form-group">
-        <label for="name">Car Name:</label>
-        <input type="text" name="name" id="name" value="<%= car.name %>" required>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-xl mx-auto p-8">        
+      <div class="bg-white rounded-xl shadow-lg p-8">
+            <div class="mb-8">
+                <h1 class="text-2xl font-semibold text-gray-800">Edit Car Details</h1>
+                <p class="text-gray-500 mt-2">Update the information for your vehicle</p>
+            </div>            
+            <form action="/admin/update-car/<%= car._id %>?_method=PUT" method="POST" class="space-y-6">
+                <div class="relative">                    
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Car Name</label>
+                    <div class="relative">                        
+                      <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                            <i class="fas fa-car"></i>
+                        </span>
+                        <input type="text" id="name" name="name" value="<%= car.name %>" required 
+                            class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-custom focus:border-custom transition-colors bg-white text-gray-900 text-sm placeholder-gray-400"
+                            placeholder="Enter car name">                    
+                          </div>
+                </div>
+
+                <div class="relative">
+                    <label for="brand" class="block text-sm font-medium text-gray-700 mb-1">Car Brand</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">                            
+                          <i class="fas fa-building"></i>
+                        </span>
+                        <input type="text" id="brand" name="brand" value="<%= car.brand %>" required 
+                            class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-custom focus:border-custom transition-colors bg-white text-gray-900 text-sm placeholder-gray-400"
+                            placeholder="Enter car brand">                    
+                          </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="relative">                        
+                      <label for="year" class="block text-sm font-medium text-gray-700 mb-1">Manufacturing Year</label>
+                        <div class="relative">                            
+                          <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                <i class="fas fa-calendar"></i>
+                            </span>
+                            <input type="number" id="year" name="year" value="<%= car.year %>" required min="1900" max="2024"
+                                class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-custom focus:border-custom transition-colors bg-white text-gray-900 text-sm placeholder-gray-400"
+                                placeholder="Enter year">                        
+                              </div>
+                    </div>
+
+                    <div class="relative">
+                        <label for="pricePerDay" class="block text-sm font-medium text-gray-700 mb-1">Price Per Day</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">                                
+                              <i class="fas fa-dollar-sign"></i>
+                            </span>
+                            <input type="number" id="pricePerDay" name="pricePerDay" value="<%= car.pricePerDay %>" required min="0"
+                                class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-custom focus:border-custom transition-colors bg-white text-gray-900 text-sm placeholder-gray-400"
+                                placeholder="Enter price per day">                        
+                              </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="!rounded-button w-full bg-custom text-white py-3 px-4 font-medium hover:bg-custom/90 focus:outline-none focus:ring-2 focus:ring-custom focus:ring-offset-2 transition-colors">                        
+                      Update Car Details
+                    </button>
+                </div>
+            </form>
+        </div>    
       </div>
-
-      <div class="form-group">
-        <label for="brand">Car Brand:</label>
-        <input type="text" name="brand" id="brand" value="<%= car.brand %>" required>
-      </div>
-
-      <div class="form-group">
-        <label for="year">Year:</label>
-        <input type="number" name="year" id="year" value="<%= car.year %>" required>
-      </div>
-
-      <div class="form-group">
-        <label for="pricePerDay">Price Per Day:</label>
-        <input type="number" name="pricePerDay" id="pricePerDay" value="<%= car.pricePerDay %>" required>
-      </div>
-
-      <button type="submit">Update Car</button>
-    </form>
-  </div>
-
 </body>
 </html>
-
-
-<div class="max-w-8xl mx-auto px-4 py-16">
-  <div class="text-center mb-12">            
-      <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Amazing Results</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how our solutions have transformed businesses and delivered exceptional outcomes for our clients worldwide.</p>
-  </div>        <div class="relative overflow-hidden">
-      <div class="scroll-container flex animate-scroll hover:pause space-x-8 py-8">                
-          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
-                  <img src="https://creatie.ai/ai/api/search-image?query=A professional business team celebrating success in a modern office environment, showing genuine joy and achievement, with a clean white background and natural lighting&width=320&height=192&orientation=landscape&flag=29679353-c60a-4488-9bea-805faf0cc10d" class="w-full h-full object-cover" alt="Success story 1">                    
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">200% Revenue Growth</h3>
-              <p class="text-gray-600 mb-4">Achieved remarkable growth through strategic implementation of our solutions.</p>
-              <div class="flex items-center text-sm text-gray-500">                        
-                  <i class="fas fa-building mr-2"></i>
-                  <span>Tech Solutions Inc.</span>
-              </div>                
-          </div>
-
-          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
-                  <img src="https://creatie.ai/ai/api/search-image?query=A modern data visualization dashboard showing positive trends and metrics, with clean design and professional layout, on a light background&width=320&height=192&orientation=landscape&flag=f2bd073e-1300-43e1-9800-b5af679803bb" class="w-full h-full object-cover" alt="Success story 2">                    
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">50% Cost Reduction</h3>
-              <p class="text-gray-600 mb-4">Optimized operations leading to significant cost savings and improved efficiency.</p>
-              <div class="flex items-center text-sm text-gray-500">                       
-                   <i class="fas fa-industry mr-2"></i>
-                  <span>Manufacturing Pro</span>
-              </div>                
-          </div>
-
-          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
-                  <img src="https://creatie.ai/ai/api/search-image?query=A satisfied customer service team in a modern office setting, demonstrating excellent customer satisfaction scores on screens, with bright and clean environment&width=320&height=192&orientation=landscape&flag=7a4b3565-dfd2-4f4f-9fb2-70f7fbfde913" class="w-full h-full object-cover" alt="Success story 3">                    </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">98% Customer Satisfaction</h3>                    
-              <p class="text-gray-600 mb-4">Exceptional service delivery resulting in outstanding customer feedback.</p>
-              <div class="flex items-center text-sm text-gray-500">                        
-                  <i class="fas fa-store mr-2"></i>
-                  <span>Retail Giants</span>
-              </div>               
-           </div>
-
-          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
-                  <img src="https://creatie.ai/ai/api/search-image?query=A global network visualization showing worldwide connectivity and expansion, with modern design elements and clean background&width=320&height=192&orientation=landscape&flag=f961a565-c5e6-44dd-b408-9c493a63c63b" class="w-full h-full object-cover" alt="Success story 4">                    
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Global Expansion</h3>
-              <p class="text-gray-600 mb-4">Successfully expanded operations to 15 new international markets.</p>
-              <div class="flex items-center text-sm text-gray-500">                        
-                  <i class="fas fa-globe mr-2"></i>
-                  <span>Global Ventures Ltd</span>
-              </div>                
-          </div>
-
-          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
-                  <img src="https://creatie.ai/ai/api/search-image?query=An innovative tech workspace showing digital transformation success, with modern devices and clean workspace design&width=320&height=192&orientation=landscape&flag=29e9d742-3966-45c9-9365-8a13f0969b6d" class="w-full h-full object-cover" alt="Success story 5">                    
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">Digital Transformation</h3>
-              <p class="text-gray-600 mb-4">Complete digital overhaul resulting in 300% productivity increase.</p>
-              <div class="flex items-center text-sm text-gray-500">                        
-                  <i class="fas fa-laptop mr-2"></i>
-                  <span>Digital Innovators</span>
-              </div>                
-          </div>
-      </div>
-  </div>
-</div>
-
-
-

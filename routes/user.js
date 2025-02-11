@@ -41,16 +41,10 @@ router.post("/login", async (req, res, next) => {
             }
             // Flash a success message and redirect based on user role
             req.flash('success_msg', 'You have successfully logged in!');
-            res.redirect("/user/admin"); // Redirect to admin dashboard
+            res.redirect("/all/cars"); // Redirect to admin dashboard
         });
     })(req, res, next);
 });
-
-router.get("/admin", async(req,res)=>{
-    const cars = await Car.find({});
-    res.render("./admin-dashboard.ejs",{cars})
-})
-
 
 // Logout route
 router.get("/logout", (req, res, next) => {

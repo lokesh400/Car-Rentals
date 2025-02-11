@@ -1,234 +1,366 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Premium Car Rental Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <title>Brother Car Rentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet"/>
   <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
-  <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
-  <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius="medium"></script>
-<style>.no-scrollbar::-webkit-scrollbar{display:none;}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none;}@keyframes scroll{0%{transform:translateX(-2000px);}100%{transform:translateX(0);}}.auto-scroll{animation:scroll 50s linear infinite;}.auto-scroll:hover{animation-play-state:paused;}</style></head>
+  <link rel="stylesheet" href="styles/ourResults.css">
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
 <body class="font-inter">
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between h-16">
-              <div class="flex">
-                  <div class="flex-shrink-0 flex items-center">
-                      <img class="h-8 w-auto" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
-                  </div>
-                  <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                      <a href="#" class="border-custom text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
-                      <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Cars</a>
-                      <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Deals</a>
-                      <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
-                      <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
-                  </div>
-              </div>
-              <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                  <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium">Sign In</button>
-              </div>
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="h-8 w-auto" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
           </div>
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <a href="#" class="border-custom text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Cars</a>
+            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Deals</a>
+            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
+            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover -text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+          </div>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+          <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium">Sign In</button>
+        </div>
       </div>
+    </div>
   </nav>
   <main class="mt-16">
-      <section class="relative bg-gray-900 h-[600px]">
-          <div class="absolute inset-0">
-              <img src="https://creatie.ai/ai/api/search-image?query=A luxury car showroom interior with modern architecture, clean lines, and dramatic lighting. High-end vehicles are displayed on a polished floor with subtle reflections. The space features minimalist design elements and large windows&width=1440&height=600&orientation=landscape&flag=9e6f0acb-9fd7-4d52-ba55-2d4bb527737b&flag=f515cd12-f47c-481a-804d-1434ea32a912&flag=2f903aaf-7423-43bd-91a8-1726bec64d01&flag=184a3b77-b924-410e-ac7b-d51f5199faab&flag=91a1a4cb-f5a2-4726-b8cd-24374e1514d1&flag=85668f2c-c28c-4274-9f17-bafae79850ef&flag=155deaa6-8b54-4145-a647-27ff44b725c9&flag=389a06cb-fa6b-45fb-8f0f-d5def9eb290a&flag=ac74bc3c-9936-426f-b6b5-6946e9318e9f" class="w-full h-full object-cover" alt="Hero"/>
-              <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
-          </div>
-          <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-              <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Book Your Dream Car Today</h1>
-              <p class="mt-6 text-xl text-gray-300 max-w-3xl">Browse through our extensive collection of premium vehicles. From luxury sedans to sporty convertibles, we&#39;ve got your perfect ride.</p>
-              
-              <div class="mt-10 bg-white p-6 rounded-lg shadow-xl max-w-4xl">
-                  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                      <div>
-                          <label class="block text-sm font-medium text-gray-700">Pick-up Location</label>
-                          <div class="mt-1 relative">
-                              <input type="text" class="block w-full border-gray-300 focus:ring-custom focus:border-custom" placeholder="Enter city or airport"/>
-                              <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                                  <i class="fas fa-map-marker-alt text-gray-400"></i>
-                              </div>
-                          </div>
-                      </div>
-                      <div>
-                          <label class="block text-sm font-medium text-gray-700">Pick-up Date</label>
-                          <div class="mt-1 relative">
-                              <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
-                          </div>
-                      </div>
-                      <div>
-                          <label class="block text-sm font-medium text-gray-700">Return Date</label>
-                          <div class="mt-1 relative">
-                              <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
-                          </div>
-                      </div>
-                      <div>
-                          <label class="block text-sm font-medium text-gray-700">Car Type</label>
-                          <select class="mt-1 block w-full border-gray-300 focus:ring-custom focus:border-custom">
-                              <option>All Types</option>
-                              <option>Luxury</option>
-                              <option>SUV</option>
-                              <option>Economy</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="mt-6">
-                      <button class="!rounded-button w-full bg-custom text-white px-4 py-2 text-lg font-medium">Find My Perfect Car <i class="fas fa-arrow-right ml-2"></i></button>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <section class="py-16 bg-gray-50">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 class="text-3xl font-bold text-gray-900">Hot Deals <span class="text-custom">Today</span></h2>
-              <div class="mt-8">
-                  <div class="glide">
-                      <div class="glide__track" data-glide-el="track">
-                          <ul class="glide__slides infinite-carousel"><li class="glide__slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A sleek luxury sedan photographed in a studio setting with pure white background&width=400&height=300&flag=0e6c6dac-33b8-45d8-ae34-35d27878fca2&flag=0d60aa73-5df5-4845-a4a9-01d7a4a840c5&flag=4199ef9b-2700-4fb0-87a4-49ec360cae1c&flag=c57646ba-8f1c-4861-befd-b55e488ded83&flag=43c8b902-0f5f-4165-8935-24d5d623ef81&flag=b17f2719-70f0-4b28-9001-afb9b567076b" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Mercedes-Benz E-Class</h3><p class="mt-2 text-sm text-gray-600">Luxury Sedan with premium features</p><div class="mt-4 flex justify-between items-center"><span class="text-2xl font-bold text-custom">$89/day</span><button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button></div></div></div></li><li class="glide__slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A modern SUV photographed in a studio setting&width=400&height=300&flag=64d0ac36-90bb-498b-98e6-02cda14f167a&flag=a17a3888-8774-4eae-ac16-fecc0dddbab2&flag=1346dafd-507c-468a-abe5-1d23dc6f9a87&flag=587def2d-76e5-4db8-aa17-03a9a73a94f6&flag=d30d0d56-c845-4dd5-87b7-703533e046ba&flag=9d56f04d-bd59-40c2-bf66-a1ec21573fa8" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">BMW X5</h3><p class="mt-2 text-sm text-gray-600">Luxury SUV perfect for family trips</p><div class="mt-4 flex justify-between items-center"><span class="text-2xl font-bold text-custom">$129/day</span><button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button></div></div></div></li><li class="glide__slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A sporty convertible photographed in a studio setting&width=400&height=300&flag=0577a67f-73b2-4db3-8bd9-96ec48f5dcb5&flag=e2e032ac-7fcd-481d-b0da-d4936e1fcf09&flag=573fc4ba-3dad-42a1-8eae-5748c38bc5ce&flag=1dcb25e2-6025-427c-8a53-ded70251ba62&flag=8961a1f2-8be9-40ec-a0c9-7b9a7302f246&flag=c98c904f-6920-4d47-a258-c7a58e9c4fef" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Porsche 911 Cabrio</h3><p class="mt-2 text-sm text-gray-600">Premium sports car experience</p><div class="mt-4 flex justify-between items-center"><span class="text-2xl font-bold text-custom">$199/day</span><button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button></div></div></div></li><li class="glide__slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=A Tesla Model S in studio setting&width=400&height=300&flag=5cea033c-c12c-43bf-9e9c-d84254c65155&flag=cd6ee5ce-01d4-4a38-820e-5f1a8e00779c&flag=a46ea332-1cdb-4196-a737-04e0859e121c&flag=6b2db027-1578-415b-a15c-c4b10eeaabe8&flag=73930cb1-f209-4c9d-9a25-5a0781189830&flag=e12e0aea-507a-49ec-b31a-09f2cf6b348a" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Tesla Model S</h3><p class="mt-2 text-sm text-gray-600">Electric luxury performance</p><div class="mt-4 flex justify-between items-center"><span class="text-2xl font-bold text-custom">$159/day</span><button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button></div></div></div></li><li class="glide__slide"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><img src="https://creatie.ai/ai/api/search-image?query=An Audi RS7 in studio setting&width=400&height=300&flag=65881190-ee09-4491-9ea7-4b2c670526c5&flag=a5acc7b4-8e7b-4c70-9745-65780bed9953&flag=e5aba1fb-a570-490f-943e-0240b0726cf4&flag=138c4807-1181-4e52-96b9-92c0c24afd46&flag=ddf4bc65-75b4-4059-a8c9-8c2d728c21b6&flag=4471f8ec-fdf1-4cbf-8ac0-03e384d3b5f6" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Audi RS7</h3><p class="mt-2 text-sm text-gray-600">High-performance luxury sportback</p><div class="mt-4 flex justify-between items-center"><span class="text-2xl font-bold text-custom">$179/day</span><button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button></div></div></div></li></ul>
-                      </div>
-                      <div class="glide__bullets" data-glide-el="controls[nav]"><button class="glide__bullet" data-glide-dir="=0"></button><button class="glide__bullet" data-glide-dir="=1"></button><button class="glide__bullet" data-glide-dir="=2"></button><button class="glide__bullet" data-glide-dir="=3"></button><button class="glide__bullet" data-glide-dir="=4"></button></div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <section class="py-16">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 class="text-3xl font-bold text-gray-900">Browse by Category</h2>
-              <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                  <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-                      <img src="https://creatie.ai/ai/api/search-image?query=A compact economy car photographed in a studio setting with pure white background. The vehicle demonstrates practical design and efficiency. Professional lighting shows the car's modern features and clean lines&width=300&height=200&orientation=landscape&flag=b5613b02-b7c0-4677-881f-2b8ee031705a&flag=c33adb58-f5fd-44c0-827f-25fb62cdbd61&flag=6d357410-8a37-4d28-b7aa-6db9523f9729&flag=57f87af6-1e43-4938-819f-ed976da2f650&flag=1540584e-2a91-4262-a810-3048daf89256&flag=86c999f7-786e-44ba-bc3a-635912d0c5c4&flag=f4882333-2937-4404-b40b-75d60ecdb603&flag=fb4b3ff0-dfd6-4932-9b17-0f3e8513a40a&flag=bbd4c6dd-d599-4b5c-8eab-316d3e72cda3" class="w-full h-40 object-cover group-hover:opacity-75" alt="Economy"/>
-                      <div class="p-6">
-                          <h3 class="text-lg font-semibold text-gray-900">Economy</h3>
-                          <p class="mt-2 text-sm text-gray-600">Best value for money</p>
-                          <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-                      </div>
-                  </div>
-                  <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-                      <img src="https://creatie.ai/ai/api/search-image?query=A premium luxury sedan photographed in a studio setting with pure white background. The car exemplifies elegance and sophistication. Professional lighting emphasizes the vehicle's high-end features and pristine finish&width=300&height=200&orientation=landscape&flag=6aa18072-e48d-497f-9a70-bc918da34a47&flag=1ee7e83b-dcac-4df2-9997-41184641e3b1&flag=b8eeb15f-b59c-4f35-ab4a-cb32530fe3b3&flag=fd098c88-cfe8-4d20-9db5-20a4759e45cf&flag=362b5b36-e3d8-4c46-b9ff-e9a6ed02ed22&flag=47c43ed7-1d5a-44fb-9c96-12b85c5c6e03&flag=4ac05c5f-ba5c-45da-965f-74dd90884c39&flag=1b0f08b0-df4b-4d05-8e78-dbebd47e3d2d&flag=38774eaa-111a-4933-97fb-815b562a673b" class="w-full h-40 object-cover group-hover:opacity-75" alt="Luxury"/>
-                      <div class="p-6">
-                          <h3 class="text-lg font-semibold text-gray-900">Luxury</h3>
-                          <p class="mt-2 text-sm text-gray-600">Premium experience</p>
-                          <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-                      </div>
-                  </div>
-                  <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-                      <img src="https://creatie.ai/ai/api/search-image?query=A large SUV photographed in a studio setting with pure white background. The vehicle showcases spacious design and versatility. Professional lighting highlights the car's robust features and premium finish&width=300&height=200&orientation=landscape&flag=f393d5d6-a9f1-4c3d-a332-61c330398170&flag=dc54607d-2e4c-449b-925f-516ddefc8011&flag=e6a19367-40a5-41ac-9921-3b1f0696f69e&flag=90e9ab86-5e53-41a9-bcd0-66a0258be036&flag=f6a24eb2-e499-4e28-94da-ae4abfed5cb7&flag=b1d36077-5e08-4f28-8834-b183479c8299&flag=c2172b6f-2b8c-417f-afe4-996977c5638d&flag=a2139581-5514-4f14-909e-31a7d2f03415&flag=b0331913-ee9a-4bc9-b0f1-ce65bd9a1455" class="w-full h-40 object-cover group-hover:opacity-75" alt="SUV"/>
-                      <div class="p-6">
-                          <h3 class="text-lg font-semibold text-gray-900">SUV</h3>
-                          <p class="mt-2 text-sm text-gray-600">Space and comfort</p>
-                          <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-                      </div>
-                  </div>
-                  <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-                      <img src="https://creatie.ai/ai/api/search-image?query=A high-performance sports car photographed in a studio setting with pure white background. The vehicle demonstrates aggressive styling and aerodynamic design. Professional lighting emphasizes the car's sporty features and sleek finish&width=300&height=200&orientation=landscape&flag=52328aa5-6575-4f5a-bf3e-f09fbb11feed&flag=a18308d9-6316-45fe-ad34-3d40ad4a8516&flag=96984c2a-6ba4-4c21-80a0-6a448f0f254b&flag=7c0c5a78-d851-486d-8170-49dc1cd12267&flag=677e2c81-09cf-4c7b-a24a-16fb1275e890&flag=8f2edbe6-1a9e-4fe9-8eb9-77323559a586&flag=28d58ecf-7571-4f14-be19-eba4a32e5528&flag=f4219043-0482-4f0a-932c-9d7afce42db1&flag=42a1fefb-bf66-4e98-b2e2-addc7a342340" class="w-full h-40 object-cover group-hover:opacity-75" alt="Sports"/>
-                      <div class="p-6">
-                          <h3 class="text-lg font-semibold text-gray-900">Sports</h3>
-                          <p class="mt-2 text-sm text-gray-600">Pure excitement</p>
-                          <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <section class="py-16 bg-gray-50"><section class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><h2 class="text-3xl font-bold text-gray-900 mb-8">My Cars</h2><div class="relative overflow-x-auto"><div class="flex space-x-6 overflow-x-auto no-scrollbar" style="scroll-behavior: smooth;"><div class="flex-none w-80 auto-scroll"><div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"><img src="https://creatie.ai/ai/api/search-image?query=BMW M3 in studio setting&width=400&height=300&flag=2e3a197f-4059-40fc-9de4-78a2be5926ca&flag=fb7ea399-1e5a-44a1-9987-5fb851b4ea31&flag=b897c948-1df8-45ad-b6e9-2b340022b435&flag=ce6b6d21-deeb-432f-945c-63d07e899e78" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">BMW M3</h3><p class="mt-2 text-sm text-gray-600">Premium sports sedan</p><p class="mt-2 text-2xl font-bold text-custom">$150/day</p><div class="mt-4 flex space-x-3"><button class="flex-1 !rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700">Edit</button><button class="flex-1 !rounded-button bg-red-600 text-white px-4 py-2 text-sm font-medium hover:bg-red-700">Delete</button></div></div></div></div><div class="flex-none w-80 auto-scroll"><div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"><img src="https://creatie.ai/ai/api/search-image?query=Mercedes S-Class in studio setting&width=400&height=300&flag=e617f63a-ee6c-4104-a375-60cee521064d&flag=7fe00602-f6b1-4b0c-8396-321f3aea3966&flag=b7eae696-0d95-4726-9d03-a941307fa7d9&flag=ed9122bf-0a7e-47ab-8f04-bc4574c2f2d2" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Mercedes S-Class</h3><p class="mt-2 text-sm text-gray-600">Luxury flagship sedan</p><p class="mt-2 text-2xl font-bold text-custom">$200/day</p><div class="mt-4 flex space-x-3"><button class="flex-1 !rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700">Edit</button><button class="flex-1 !rounded-button bg-red-600 text-white px-4 py-2 text-sm font-medium hover:bg-red-700">Delete</button></div></div></div></div><div class="flex-none w-80 auto-scroll"><div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"><img src="https://creatie.ai/ai/api/search-image?query=Porsche Cayenne in studio setting&width=400&height=300&flag=684fc0da-ebd4-4a30-8f1d-3413276c698f&flag=fe5ca906-f12e-43ce-a645-b894096a4078&flag=a11dd4fb-95dd-468d-b4d0-69dd2c7e55e8&flag=d7df6a3a-9c84-458f-9a6d-0809110c9299" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Porsche Cayenne</h3><p class="mt-2 text-sm text-gray-600">Luxury SUV</p><p class="mt-2 text-2xl font-bold text-custom">$180/day</p><div class="mt-4 flex space-x-3"><button class="flex-1 !rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700">Edit</button><button class="flex-1 !rounded-button bg-red-600 text-white px-4 py-2 text-sm font-medium hover:bg-red-700">Delete</button></div></div></div></div><div class="flex-none w-80 auto-scroll"><div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"><img src="https://creatie.ai/ai/api/search-image?query=Audi Q7 in studio setting&width=400&height=300&flag=fdffc17a-ced2-4fb7-a261-7509c45550fa&flag=a2f52668-be65-40c8-90d5-c53b6b61b7f9&flag=6224ed21-4545-4ad9-ba93-cada42673146&flag=ca6b4346-4086-4a6f-8dbd-be4c3a714302" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Audi Q7</h3><p class="mt-2 text-sm text-gray-600">Premium SUV</p><p class="mt-2 text-2xl font-bold text-custom">$170/day</p><div class="mt-4 flex space-x-3"><button class="flex-1 !rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700">Edit</button><button class="flex-1 !rounded-button bg-red-600 text-white px-4 py-2 text-sm font-medium hover:bg-red-700">Delete</button></div></div></div></div><div class="flex-none w-80 auto-scroll"><div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"><img src="https://creatie.ai/ai/api/search-image?query=Tesla Model X in studio setting&width=400&height=300&flag=10473be9-2893-4ab1-8e79-19cab20a7897&flag=74b47382-c2e4-49d1-8b8e-d13889ce017d&flag=94092b68-f47f-41e2-b2ec-e57a74c1f033&flag=7836c22c-d7d7-4213-8a79-4f09d9f9d58a" class="w-full h-48 object-cover" alt="Car"/><div class="p-6"><h3 class="text-lg font-semibold text-gray-900">Tesla Model X</h3><p class="mt-2 text-sm text-gray-600">Electric SUV</p><p class="mt-2 text-2xl font-bold text-custom">$190/day</p><div class="mt-4 flex space-x-3"><button class="flex-1 !rounded-button bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-700">Edit</button><button class="flex-1 !rounded-button bg-red-600 text-white px-4 py-2 text-sm font-medium hover:bg-red-700">Delete</button></div></div></div></div></div></div></div></section><section class="py-16" id="map-section"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><h2 class="text-3xl font-bold text-gray-900 mb-8">Our Location</h2><div class="w-full h-[400px] rounded-lg overflow-hidden shadow-lg"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1842857530904!2d-73.98784368459418!3d40.757977979326225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5m2!1s!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="mt-6"><p class="text-lg text-gray-600"><i class="fas fa-map-marker-alt text-custom mr-2"></i>123 Rental Street, New York, NY 10001</p><p class="text-lg text-gray-600 mt-2"><i class="fas fa-clock text-custom mr-2"></i>Open Monday - Sunday: 8:00 AM - 8:00 PM</p></div></div></section>
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 class="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
-              <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"><div class="bg-white rounded-lg shadow-lg p-6"><div class="flex items-center"><img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a businessman&width=100&height=100&flag=66299dca-a677-4138-9f25-397ef14d43b4&flag=d9f0b1fd-47af-4b66-b57c-19b0d6c259c9&flag=81c90a43-7175-4a2a-aa65-5e4316a38eb5&flag=b27314de-816d-4323-a5a4-40918264ba6d&flag=a46ab112-1a7e-4760-82e9-f4471b2c552e&flag=2c7de10b-20bc-4b5b-aa2d-033add77dc07" alt="Customer"/><div class="ml-4"><h4 class="text-lg font-semibold text-gray-900">John Smith</h4><div class="flex items-center"><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i></div></div></div><p class="mt-4 text-gray-600">&#34;Excellent service and amazing cars. The rental process was smooth and the staff was very helpful. Will definitely use again!&#34;</p></div><div class="bg-white rounded-lg shadow-lg p-6"><div class="flex items-center"><img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a businesswoman&width=100&height=100&flag=4ee7872e-22bf-4a16-a50f-e8abe1548c68&flag=9ddf5464-809a-4a1e-b5cd-12a7359004f1&flag=b0a4e390-c2a7-4b8c-9633-5d84245a617c&flag=c86da6f2-f1a1-47b3-a4a9-77d4746ad2f9&flag=0ef6f174-bcf2-43da-a747-f56afbdedf5b&flag=f53044a9-137a-4da9-b517-c1f88052f1e1" alt="Customer"/><div class="ml-4"><h4 class="text-lg font-semibold text-gray-900">Sarah Johnson</h4><div class="flex items-center"><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i></div></div></div><p class="mt-4 text-gray-600">&#34;The luxury car I rented was in perfect condition and made my business trip so much more enjoyable. Highly recommended!&#34;</p></div><div class="bg-white rounded-lg shadow-lg p-6"><div class="flex items-center"><img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a young man&width=100&height=100&flag=dd5afa6a-688e-402d-b0cf-38a0ae8e03f3&flag=6280bf50-7a2f-482d-a193-f77f06771447&flag=4c84ab0b-ed5a-4cf0-a59a-43c7df2c3ad3&flag=e745f00a-b02f-4d12-a994-8496ddc33918&flag=644105c9-dc4b-4be9-93a1-f25dbb9db0b0&flag=2759be86-0951-42b0-99f6-be0d96d8b580" alt="Customer"/><div class="ml-4"><h4 class="text-lg font-semibold text-gray-900">Michael Brown</h4><div class="flex items-center"><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i></div></div></div><p class="mt-4 text-gray-600">&#34;Great selection of vehicles and competitive prices. The online booking system was very convenient. Will be back!&#34;</p></div><div class="bg-white rounded-lg shadow-lg p-6"><div class="flex items-center"><img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a young woman&width=100&height=100&flag=aa1f67f8-d773-436d-8591-1ed8dc898832&flag=3199d0a8-03ce-42cd-8460-8ceed7221e16&flag=cb0da8f5-2a63-441f-b12d-e6b9725615b3&flag=b24fdd95-1eec-42d5-8498-d8de65132a97&flag=3de0a44b-f512-416e-b92a-a2e1bf72dc6a&flag=025bbe1a-7190-4957-ad3f-3d0366d7aee7" alt="Customer"/><div class="ml-4"><h4 class="text-lg font-semibold text-gray-900">Emma Wilson</h4><div class="flex items-center"><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i><i class="fas fa-star text-custom"></i></div></div></div><p class="mt-4 text-gray-600">&#34;The Tesla Model S I rented was amazing! Clean, fully charged, and the perfect way to experience electric luxury.&#34;</p></div></div>
-          </div>
-      </section>
-      <div class="fixed bottom-8 right-8">
-          <button class="!rounded-button bg-custom text-white px-6 py-3 text-lg font-medium shadow-lg hover:bg-custom-dark transition duration-300 animate-bounce">
-              <i class="fas fa-car mr-2"></i>Quick Book
-          </button>
+    <section class="relative bg-gray-900 h-[600px]">
+      <div class="absolute inset-0">
+        <img src="https://creatie.ai/ai/api/search-image?query=A luxury car showroom interior with modern architecture, clean lines, and dramatic lighting. High-end vehicles are displayed on a polished floor with subtle reflections. The space features minimalist design elements and large windows&width=1440&height=600&orientation=landscape&flag=9e6f0acb-9fd7-4d52-ba55-2d4bb527737b&flag=f515cd12-f47c-481a-804d-1434ea32a912&flag=2f903aaf-7423-43bd-91a8-1726bec64d01&flag=184a3b77-b924-410e-ac7b-d51f5199faab&flag=91a1a4cb-f5a2-4726-b8cd-24374e1514d1&flag=85668f2c-c28c-4274-9f17-bafae79850ef&flag=155deaa6-8b54-4145-a647-27ff44b725c9&flag=389a06cb-fa6b-45fb-8f0f-d5def9eb290a&flag=ac74bc3c-9936-426f-b6b5-6946e9318e9f" class="w-full h-full object-cover" alt="Hero"/>
+        <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
       </div>
-  </main>
-  <footer class="bg-gray-900">
-      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-              <div class="space-y-8 xl:col-span-1">
-                  <img class="h-10" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
-                  <p class="text-gray-400 text-base">Premium car rental services for your every need. Experience luxury and comfort on your terms.</p>
-                  <div class="flex space-x-6">
-                      <a href="#" class="text-gray-400 hover:text-gray-300">
-                          <i class="fab fa-facebook-f"></i>
-                      </a>
-                      <a href="#" class="text-gray-400 hover:text-gray-300">
-                          <i class="fab fa-twitter"></i>
-                      </a>
-                      <a href="#" class="text-gray-400 hover:text-gray-300">
-                          <i class="fab fa-instagram"></i>
-                      </a>
-                  </div>
+      <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Book Your Dream Car Today</h1>
+        <p class="mt-6 text-xl text-gray-300 max-w-3xl">Browse through our extensive collection of premium vehicles. From luxury sedans to sporty convertibles, we've got your perfect ride.</p>
+        
+        <div class="mt-10 bg-white p-6 rounded-lg shadow-xl max-w-4xl">
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Pick-up Location</label>
+              <div class="mt-1 relative">
+                <input type="text" class="block w-full border-gray-300 focus:ring-custom focus:border-custom" placeholder="Enter city or airport"/>
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  <i class="fas fa-map-marker-alt text-gray-400"></i>
+                </div>
               </div>
-              <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-                  <div class="md:grid md:grid-cols-2 md:gap-8">
-                      <div>
-                          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quick Links</h3>
-                          <ul class="mt-4 space-y-4">
-                              <li><a href="#" class="text-base text-gray-300 hover:text-white">About Us</a></li>
-                              <li><a href="#" class="text-base text-gray-300 hover:text-white">Our Fleet</a></li>
-                              <li><a href="#" class="text-base text-gray-300 hover:text-white">Locations</a></li>
-                              <li><a href="#" class="text-base text-gray-300 hover:text-white">FAQs</a></li>
-                          </ul>
-                      </div>
-                      <div class="mt-12 md:mt-0">
-                          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contact</h3>
-                          <ul class="mt-4 space-y-4">
-                              <li class="flex">
-                                  <i class="fas fa-phone text-custom mr-3"></i>
-                                  <span class="text-gray-300">+1 (555) 123-4567</span>
-                              </li>
-                              <li class="flex">
-                                  <i class="fas fa-envelope text-custom mr-3"></i>
-                                  <span class="text-gray-300">info@carrentals.com</span>
-                              </li>
-                              <li class="flex">
-                                  <i class="fas fa-map-marker-alt text-custom mr-3"></i>
-                                  <span class="text-gray-300">123 Rental Street, NY 10001</span>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Pick-up Date</label>
+              <div class="mt-1 relative">
+                <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
               </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Return Date</label>
+              <div class="mt-1 relative">
+                <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Car Type</label>
+              <select class="mt-1 block w-full border-gray-300 focus:ring-custom focus:border-custom">
+                <option>All Types</option>
+                <option>Luxury</option>
+                <option>SUV</option>
+                <option>Economy</option>
+              </select>
+            </div>
           </div>
-          <div class="mt-12 border-t border-gray-700 pt-8">
-              <p class="text-base text-gray-400 xl:text-center">© 2024 Premium Car Rentals. All rights reserved.</p>
+          <div class="mt-6">
+            <button class="!rounded-button w-full bg-custom text-white px-4 py-2 text-lg font-medium">Find My Perfect Car <i class="fas fa-arrow-right ml-2"></i></button>
           </div>
+ </div>
+        </div>
       </div>
-  </footer>
-  <script>new Glide(&#39;.glide&#39;, {
-  type: &#39;carousel&#39;,
-  startAt: 0,
-  perView: 3,
-  gap: 30,
-  autoplay: 3000,
-  hoverpause: true,
-  rewind: false,
-  focusAt: &#39;center&#39;,
-  peek: {
-    before: 50,
-    after: 50
-  },
-  breakpoints: {
-    1024: {
-      perView: 2,
-      peek: {
-        before: 30,
-        after: 30
-      }
-    },
-    640: {
-      perView: 1,
-      peek: {
-        before: 20,
-        after: 20
-      }
-    }
-  }
-}).mount();</script>
+    </section>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900">Hot Deals <span class="text-custom">Today</span></h2>
+        <div class="mt-8">
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides infinite-carousel">
+                <li class="glide__slide">
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://creatie.ai/ai/api/search-image?query=A sleek luxury sedan photographed in a studio setting with pure white background&width=400&height=300&flag=0e6c6dac-33b8-45d8-ae34-35d27878fca2&flag=0d60aa73-5df5-4845-a4a9-01d7a4a840c5&flag=4199ef9b-2700-4fb0-87a4-49ec360cae1c&flag=c57646ba-8f1c-4861-befd-b55e488ded83&flag=43c8b902-0f5f-4165-8935-24d5d623ef81&flag=b17f2719-70f0-4b28-9001-afb9b567076b" class="w-full h-48 object-cover" alt="Car"/>
+                    <div class="p-6">
+                      <h3 class="text-lg font-semibold text-gray-900">Mercedes-Benz E-Class</h3>
+                      <p class="mt-2 text-sm text-gray-600">Luxury Sedan with premium features</p>
+                      <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-custom">$89/day</span>
+                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://creatie.ai/ai/api/search-image?query=A modern SUV photographed in a studio setting&width=400&height=300&flag=64d0ac36-90bb-498b-98e6-02cda14f167a&flag=a17a3888-8774-4eae-ac16-fecc0dddbab2&flag=1346dafd-507c-468a-abe5-1d23dc6f9a87&flag=587def2d-76e5-4db8-aa17-03a9a73a94f6&flag=d30d0d56-c845-4dd5-87b7-703533e046ba&flag=9d56f04d-bd59-40c2-bf66-a1ec21573fa8" class="w-full h-48 object-cover" alt="Car"/>
+                    <div class="p-6">
+                      <h3 class="text-lg font-semibold text-gray-900">BMW X5</h3>
+                      <p class="mt-2 text-sm text-gray-600">Luxury SUV perfect for family trips</p>
+                      <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-custom">$129/day</span>
+                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://creatie.ai/ai/api/search-image?query=A sporty convertible photographed in a studio setting&width=400&height=300&flag=0577a67f-73b2-4db3-8bd9-96ec48f5dcb5&flag=e2e032ac-7fcd-481d-b0da-d4936e1fcf09&flag=573fc4ba-3dad-42a1-8eae-5748c38bc5ce&flag=1dcb25e2-6025-427c- 8a53-ded70251ba62&flag=8961a1f2-8be9-40ec-a0c9-7b9a7302f246&flag=c98c904f-6920-4d47-a258-c7a58e9c4fef" class="w-full h-48 object-cover" alt="Car"/>
+                    <div class="p-6">
+                      <h3 class="text-lg font-semibold text-gray-900">Porsche 911 Cabrio</h3>
+                      <p class="mt-2 text-sm text-gray-600">Premium sports car experience</p>
+                      <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-custom">$199/day</span>
+                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://creatie.ai/ai/api/search-image?query=A Tesla Model S in studio setting&width=400&height=300&flag=5cea033c-c12c-43bf-9e9c-d84254c65155&flag=cd6ee5ce-01d4-4a38-820e-5f1a8e00779c&flag=a46ea332-1cdb-4196-a737-04e0859e121c&flag=6b2db027-1578-415b-a15c-c4b10eeaabe8&flag=73930cb1-f209-4c9d-9a25-5a0781189830&flag=e12e0aea-507a-49ec-b31a-09f2cf6b348a" class="w-full h-48 object-cover" alt="Car"/>
+                    <div class="p-6">
+                      <h3 class="text-lg font-semibold text-gray-900">Tesla Model S</h3>
+                      <p class="mt-2 text-sm text-gray-600">Electric luxury performance</p>
+                      <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-custom">$159/day</span>
+                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://creatie.ai/ai/api/search-image?query=An Audi RS7 in studio setting&width=400&height=300&flag=65881190-ee09-4491-9ea7-4b2c670526c5&flag=a5acc7b4-8e7b-4c70-9745-65780bed9953&flag=e5aba1fb-a570-490f-943e-0240b0726cf4&flag=138c4807-1181-4e52-96b9-92c0c24afd46&flag=ddf4bc65-75b4-4059-a8c9-8c2d728c21b6&flag=4471f8ec-fdf1-4cbf-8ac0-03e384d3b5f6" class="w-full h-48 object-cover" alt="Car"/>
+                    <div class="p-6">
+                      <h3 class="text-lg font-semibold text-gray-900">Audi RS7</h3>
+                      <p class="mt-2 text-sm text-gray-600">High-performance luxury sportback</p>
+                      <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-custom">$179/day</span>
+                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <button class="glide__bullet" data-glide-dir="=0"></button>
+              <button class="glide__bullet" data-glide-dir="=1"></button>
+              <button class="glide__ bullet" data-glide-dir="=2"></button>
+              <button class="glide__bullet" data-glide-dir="=3"></button>
+              <button class="glide__bullet" data-glide-dir="=4"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900">Browse by Category</h2>
+        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://creatie.ai/ai/api/search-image?query=A compact economy car photographed in a studio setting with pure white background. The vehicle demonstrates practical design and efficiency. Professional lighting shows the car's modern features and clean lines&width=300&height=200&orientation=landscape&flag=b5613b02-b7c0-4677-881f-2b8ee031705a&flag=c33adb58-f5fd-44c0-827f-25fb62cdbd61&flag=6d357410-8a37-4d28-b7aa-6db9523f9729&flag=57f87af6-1e43-4938-819f-ed976da2f650&flag=1540584e-2a91-4262-a810-3048daf89256&flag=86c999f7-786e-44ba-bc3a-635912d0c5c4&flag=f4882333-2937-4404-b40b-75d60ecdb603&flag=fb4b3ff0-dfd6-4932-9b17-0f3e8513a40a&flag=bbd4c6dd-d599-4b5c-8eab-316d3e72cda3" class="w-full h-40 object-cover group-hover:opacity-75" alt="Economy"/>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">Economy</h3>
+              <p class="mt-2 text-sm text-gray-600">Best value for money</p>
+              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
+            </div>
+          </div>
+          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://creatie.ai/ai/api/search-image?query=A premium luxury sedan photographed in a studio setting with pure white background. The car exemplifies elegance and sophistication. Professional lighting emphasizes the vehicle's high-end features and pristine finish&width=300&height=200&orientation=landscape&flag=6aa18072-e48d-497f-9a70-bc918da34a47&flag=1ee7e83b-dcac-4df2-9997-41184641e3b1&flag=b8eeb15f-b59c-4f35-ab4a-cb32530fe3b3&flag=fd098c88-cfe8-4d20-9db5-20a4759e45cf&flag=362b5b36-e3d8-4c46-b9ff-e9a6ed02ed22&flag=47c43ed7-1d5a-44fb-9c96-12b85c5c6e03&flag=4ac05c5f-ba5c-45da-965f-74dd90884c39&flag=1b0f08b0-df4b-4d05-8e78-dbebd47e3d2d&flag=38774eaa-111a-4933-97fb-815b562a673b" class="w-full h-40 object-cover group-hover:opacity-75" alt="Luxury"/>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">Luxury</h3>
+              <p class="mt-2 text-sm text-gray-600">Premium experience</p>
+              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
+            </div>
+          </div>
+          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://creatie.ai/ai/api/search-image?query=A large SUV photographed in a studio setting with pure white background. The vehicle showcases spacious design and versatility. Professional lighting highlights the car's robust features and premium finish&width=300&height=200&orientation=landscape&flag=f393d5d6-a9f1-4c3d-a332-61c330398170&flag=dc54607d-2e4c-449b-925f-516ddefc8011&flag=e6a19367-40a5-41ac-9921-3b1f0696f69e&flag=90e9ab86-5e53-41a9-bcd0-66a0258be036&flag=f6a24eb2-e499-4e28-94da-ae4abfed5cb7&flag=b1d36077-5e08-4f28-8834-b183479c8299&flag=c2172b6f-2b8c-417f-afe4-996977c5638d&flag=a2139581-5514-4f14-909e-31a7d2f03415&flag=b0331913-ee9a-4bc9-b0f1-ce65bd9a1455" class="w-full h-40 object-cover group-hover:opacity-75" alt="SUV"/>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">SUV</h3>
+              <p class="mt-2 text-sm text-gray-600">Space and comfort</p>
+              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
+            </div>
+          </div>
+          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="https://creatie.ai/ai/api/search-image?query=A high-performance sports car photographed in a studio setting with pure white background. The vehicle demonstrates aggressive styling and aerodynamic design. Professional lighting emphasizes the car's sporty features and sleek finish&width=300&height=200&orientation=landscape&flag=52328aa5-6575-4f5a-bf3e-f09fbb11feed&flag=a18308d9-6316-45fe-ad34-3d40ad4a8516&flag=96984c2a-6ba4-4c21-80a0-6a448f0f254b&flag=7c0c5a78-d851-486d-8170-49dc1cd12267&flag=677e2c81-09cf-4c7b-a24a-16fb1275e890&flag=8f2edbe6-1a9e-4fe9-8eb9-77323559a586&flag=28d58ecf-7571-4f14-be19-eba4a32e5528&flag=f4219043-0482-4f0a-932c-9d7afce42db1&flag=42a1fefb-bf66-4e98-b2e2-addc7a342340" class="w-full h-40 object-cover group-hover:opacity-75" alt="Sports"/>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900">Sports</h3>
+              <p class="mt-2 text-sm text-gray-600">Pure excitement</p>
+              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-white">
+      <%- include('components/ourResults.ejs') %>
+    </section>
+
+    <section class="py-16" id="map-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Our Location</h2>
+        <div class="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1357.6186243132224!2d77.3173210143393!3d28.36945951769569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1739290655138!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="mt-6">
+          <p class="text-lg text-gray-600"><i class="fas fa-map-marker-alt text-custom mr-2"></i>123 Rental Street, New York, NY 10001</p>
+          <p class="text-lg text -gray-600 mt-2"><i class="fas fa-clock text-custom mr-2"></i>Open Monday - Sunday: 8:00 AM - 8:00 PM</p>
+        </div>
+      </div>
+    </section>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
+      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center">
+            <img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a businessman&width=100&height=100&flag=66299dca-a677-4138-9f25-397ef14d43b4&flag=d9f0b1fd-47af-4b66-b57c-19b0d6c259c9&flag=81c90a43-7175-4a2a-aa65-5e4316a38eb5&flag=b27314de-816d-4323-a5a4-40918264ba6d&flag=a46ab112-1a7e-4760-82e9-f4471b2c552e&flag=2c7de10b-20bc-4b5b-aa2d-033add77dc07" alt="Customer"/>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">John Smith</h4>
+              <div class="flex items-center">
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-gray-600">"Excellent service and amazing cars. The rental process was smooth and the staff was very helpful. Will definitely use again!"</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center">
+            <img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a businesswoman&width=100&height=100&flag=4ee7872e-22bf-4a16-a50f-e8abe1548c68&flag=9ddf5464-809a-4a1e-b5cd-12a7359004f1&flag=b0a4e390-c2a7-4b8c-9633-5d84245a617c&flag=c86da6f2-f1a1-47b3-a4a9-77d4746ad2f9&flag=0ef6f174-bcf2-43da-a747-f56afbdedf5b&flag=f53044a9-137a-4da9-b517-c1f88052f1e1" alt="Customer"/>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">Sarah Johnson</h4>
+              <div class="flex items-center">
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-gray-600">"The luxury car I rented was in perfect condition and made my business trip so much more enjoyable. Highly recommended!"</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center">
+            <img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a young man&width=100&height=100&flag=dd5afa6a-688e-402d-b0cf-38a0ae8e03f3&flag=6280bf50-7a2f-482d-a193-f77f06771447&flag =4c84ab0b-ed5a-4cf0-a59a-43c7df2c3ad3&flag=e745f00a-b02f-4d12-a994-8496ddc33918&flag=644105c9-dc4b-4be9-93a1-f25dbb9db0b0" alt="Customer"/>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">Michael Brown</h4>
+              <div class="flex items-center">
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-gray-600">"Great selection of vehicles and competitive prices. The online booking system was very convenient. Will be back!"</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+          <div class="flex items-center">
+            <img class="h-12 w-12 rounded-full" src="https://creatie.ai/ai/api/search-image?query=A professional headshot of a young woman&width=100&height=100&flag=aa1f67f8-d773-436d-8591-1ed8dc898832&flag=3199d0a8-03ce-42cd-8460-8ceed7221e16&flag=cb0da8f5-2a63-441f-b12d-e6b9725615b3&flag=b24fdd95-1eec-42d5-8498-d8de65132a97&flag=3de0a44b-f512-416e-b92a-a2e1bf72dc6a&flag=025bbe1a-7190-4957-ad3f-3d0366d7aee7" alt="Customer"/>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">Emma Wilson</h4>
+              <div class="flex items-center">
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+                <i class="fas fa-star text-custom"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-gray-600">"The Tesla Model S I rented was amazing! Clean, fully charged, and the perfect way to experience electric luxury."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="fixed bottom-8 right-8">
+    <button class="!rounded-button bg-custom text-white px-6 py-3 text-lg font-medium shadow-lg hover:bg-custom-dark transition duration-300 animate-bounce">
+      <i class="fas fa-car mr-2"></i>Quick Book
+    </button>
+  </div>
+</main>
+<footer class="bg-gray-900">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="space-y-8 xl:col-span-1">
+        <img class="h-10" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
+        <p class="text-gray-400 text-base">Premium car rental services for your every need. Experience luxury and comfort on your terms.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-gray-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-gray-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Quick Links</h3>
+            <ul class="mt-4 space-y-4">
+              <li><a href="#" class="text-base text-gray-300 hover:text-white">About Us</a></li>
+              <li><a href="#" class="text-base text-gray-300 hover:text-white">Our Fleet</a></li>
+              <li><a href="#" class="text-base text-gray-300 hover:text-white">Locations</a></li>
+              <li><a href="#" class="text-base text-gray-300 hover:text-white">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contact</h3>
+            <ul class="mt-4 space-y-4">
+              <li class="flex">
+                <i class="fas fa-phone text-custom mr-3"></i>
+                <span class="text-gray-300">+1 (555) 123-4567</span>
+              </li>
+              <li class="flex">
+                <i class="fas fa-envelope text-custom mr-3"></i>
+                <span class="text-gray-300">info@carrentals.com</span>
+              </li>
+              <li class="flex">
+                <i class="fas fa-map-marker-alt text-custom mr-3"></i>
+                <span class="text-gray-300">123 Rental Street, NY 10001</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-gray-700 pt-8">
+      <p class="text-base text-gray-400 xl:text-center">© 2024 Premium Car Rentals. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/ourResults.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+<script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+<script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius="medium"></script>
 </body>
 </html>
