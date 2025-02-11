@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 router.use(methodOverride('_method'));
 
 const Car = require("../models/car");
+const Query = require("../models/Query")
 
 const multer = require('multer');
 const path = require('path');
@@ -67,7 +68,8 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
       });
       const newCar = new Car({ name, brand, year,pricePerDay,photo:imageUrl });
       await newCar.save();
-      res.status(200).json({ message: 'Car added successfully!' });
+      req.flash('succes_msg',"New Car Added Successfully !");
+      res.redirect('/all/cars')
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: 'Upload failed: ' + error.message });
@@ -91,7 +93,7 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
    const { name, brand, year, pricePerDay } = req.body;
    try {
      await Car.findByIdAndUpdate(req.params.id, { name, brand, year, pricePerDay });
-
+     req.flash('succes_msg',"Car Updated Successfully !");
      res.redirect('/all/cars');
    } catch (err) {
      console.log(err);
@@ -103,12 +105,18 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
  router.delete('/admin/delete-car/:id', async (req, res) => {
    try {
      await Car.findByIdAndDelete(req.params.id);
+     req.flash('succes_msg',"Car Deleted Successfully !");
      res.redirect('/all/cars');
    } catch (err) {
      console.log(err);
      res.status(500).send('Server Error');
    }
  });
-  
-  
+ 
+ //All Queries 
+ router.get("/show/all/queries", async (req,res)=>{
+  const QUery = await Query.find({});
+    res.render("./allQuery.ejs",{Query});
+})
+
   module.exports = router;

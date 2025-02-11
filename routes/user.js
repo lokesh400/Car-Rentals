@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Otp = require('../models/Otp');
 const Car = require('../models/car');
+const Query = require('../models/Query')
 
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
@@ -46,6 +47,11 @@ router.post("/login", async (req, res, next) => {
     })(req, res, next);
 });
 
+router.get("/admin", async(req,res)=>{
+    const cars = await Car.find({});
+    res.render("./admin-dashboard.ejs",{cars})
+})
+
 // Logout route
 router.get("/logout", (req, res, next) => {
     req.logout((err) => {
@@ -56,9 +62,59 @@ router.get("/logout", (req, res, next) => {
     });
 });
 
+// Add A Query
+router.post("/add/new/query", async (req, res) => {
+    console.log("hello")
+    const { name, mobile, message } = req.body;
 
+    try {
+        // Save the query in the database
+        const newQuery = new Query({ name, mobile, message });
+        await newQuery.save(); 
+        // Setup email transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            host: 'smtp.gmail.com',
+            secure: false,
+            port: 587,
+            auth: {
+                user: "lokeshbadgujjar401@gmail.com",
+                pass: process.env.mailpass // Ensure this is set correctly in environment variables
+            }
+        });
+        // Define email options
+        const mailOptions = {
+            from: "lokeshbadgujjar401@gmail.com",
+            to: "rentalbrothercar@gmail.com",  // Replace with actual recipient email
+            subject: 'New Query Recieved',
+            html: `
+                <h2>New Query Submitted</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Mobile:</strong> ${mobile}</p>
+                <p><strong>Message:</strong> ${message}</p>
+                <p>
+                    <a href="tel:${mobile}" style="
+                        display: inline-block;
+                        background-color: #28a745;
+                        color: white;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                    ">📞 Call Now</a>
+                </p>
+            `
+        };
+        // Send email
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
+        req.flash('success_msg', "Query generated successfully");
+        res.redirect('/');
+    } catch (error) {
+        console.error("Error:", error);
+        req.flash('error_msg', "There was an error processing your query.");
+        res.redirect('/');
+    }
+});
 
 module.exports = router;
-
-
-

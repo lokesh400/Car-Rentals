@@ -1,80 +1,45 @@
-<div id="contact" class="contact-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h6>Contact Us</h6>
-            <h4>Get In Touch With Us <em>Now</em></h4>
-            <div class="line-dec"></div>
+      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+          <div class="text-center">
+              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>
+              <p class="mt-4 text-lg leading-6 text-gray-500">
+                  We&#39;d love to hear from you. Please fill out this form.
+              </p>
           </div>
-        </div>
-        <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="contact-dec">
-                  <img src="assets/images/contact-dec-v2.png" alt="">
-                </div>
-              </div>
-              <div class="col-lg-5">
-                <div id="map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1053.874341917153!2d77.31713049801193!3d28.370248811798575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc71f6e9f557%3A0xeb301eec9ff18517!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA%20(Formerly%20YMCA%20UST)!5e0!3m2!1sen!2sin!4v1736788090321!5m2!1sen!2sin"  width="100%" height="636px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="fill-form">
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="info-post">
-                        <div class="icon">
-                          <img src="assets/images/phone-icon.png" alt="">
-                          <a href="#">8607430187</a>
-                        </div>
+          <div class="mt-12">
+              <form action="/user/add/new/query" method="POST" class="space-y-8">
+                  <div>
+                      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                      <div class="mt-1 relative">
+                          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <i class="fas fa-user text-gray-400"></i>
+                          </div>
+                          <input type="text" name="name" id="name" class="block w-full pl-10 !rounded-button border-gray-300 shadow-sm focus:ring-custom focus:border-custom sm:text-sm" placeholder="Your name"/>
                       </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="info-post">
-                        <div class="icon">
-                          <img src="assets/images/email-icon.png" alt="">
-                          <a href="#">rentalbrothercar@gmail.com</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="info-post">
-                        <div class="icon">
-                          <img src="assets/images/location-icon.png" alt="">
-                          <a href="#">Sector 11 <br> Faribabad</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      </fieldset>
-                      <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                      </fieldset>
-                      <fieldset>
-                        <input type="subject" name="subject" id="subject" placeholder="Subject" autocomplete="on">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">Send Message Now</button>
-                      </fieldset>
-                    </div>
                   </div>
+                  <div>
+                    <div id="phone-field">
+                      <label for="phone" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                      <div class="mt-1 relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="fas fa-phone text-gray-400"></i>
+                        </div>
+                        <input type="tel" name="mobile" id="phone" class="block w-full pl-10 !rounded-button border-gray-300 shadow-sm focus:ring-custom focus:border-custom sm:text-sm" placeholder="Your mobile number"/></div>
                 </div>
-              </div>
-            </div>
-          </form>
-        </div>
+                  </div>
+                  <div>
+                      <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                      <div class="mt-1 relative">
+                          <div class="absolute top-3 left-3 pointer-events-none">
+                              <i class="fas fa-message text-gray-400"></i>
+                          </div>
+                          <textarea id="message" name="message" rows="4" class="block w-full pl-10 !rounded-button border-gray-300 shadow-sm focus:ring-custom focus:border-custom sm:text-sm" placeholder="Your message"></textarea>
+                      </div>
+                  </div>
+                  <div class="text-center">
+                      <button type="submit" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium !rounded-button shadow-sm text-white bg-custom hover:bg-custom/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom">
+                          <i class="fas fa-paper-plane mr-2"></i>
+                          Send Message
+                      </button>
+                  </div>
+              </form>
+          </div>
       </div>
-    </div>
-  </div>

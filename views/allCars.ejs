@@ -6,25 +6,149 @@
     <title>Car Rental Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">    
-    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
-    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius='medium'></script>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/toast.css">
+    <style>
+                /* Toast container */
+                #toast-cont {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        /* Style for each toast message */
+        .flash-message {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(-20px); /* Initially hidden */
+            animation: toast-in 0.5s forwards, toast-out 2s 2.5s forwards;
+        }
+        
+        /* Success and error toast styles */
+        .flash-message.success {
+            background-color: #4CAF50; /* Green for success */
+        }
+        
+        .flash-message.error {
+            background-color: #f44336; /* Red for error */
+        }
+        
+        /* Loader style */
+        .toast-loader {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            margin-right: 10px;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Toast animation for sliding in from top-right */
+        @keyframes toast-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Toast animation for fading out */
+        @keyframes toast-out {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Loader spinning animation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes progress {
+            0% { width: 0% }
+            100% { width: 100% }
+        }
+        
+        .animate-progress {
+            animation: progress 2s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+
+    <section>
+        <%- include('components/toast.ejs') %>
+    </section>
+
+    <section id="loader" style="display: none;" >
+    <div class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">        
+        <div class="bg-white rounded-xl p-8 flex flex-col items-center space-y-6 max-w-sm w-full mx-4">
+            <div class="relative">                
+                <div class="w-16 h-16 border-4 border-gray-200 border-t-custom rounded-full animate-spin"></div>
+                <div class="absolute inset-0 flex items-center justify-center">                    
+                    <i class="fas fa-circle text-custom text-xs"></i>
+                </div>
+            </div>
+            
+            <div class="text-center space-y-3">                
+                <h2 class="text-xl font-medium text-gray-800">Please Wait</h2>
+                <div class="flex items-center justify-center space-x-1">                    
+                    <div class="w-2 h-2 bg-custom rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                    <div class="w-2 h-2 bg-custom rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    <div class="w-2 h-2 bg-custom rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                </div>            
+            </div>
+            
+            <div class="w-full bg-gray-200 rounded-full h-1.5">
+                <div class="bg-custom h-1.5 rounded-full animate-progress" style="width: 0%"></div>
+            </div>
+            
+            <p class="text-gray-500 text-sm text-center">Loading your content...</p>
+        </div>    
+    </div>
+    </section>
+
     <nav class="bg-white shadow">
         <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">            
             <div class="flex justify-between h-16">
                 <div class="flex">                   
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <a href="#" class="border-custom text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Cars</a>
-                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Bookings</a>
-                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Customers</a>
+                       <h1>Admin Dashboard</h1>
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <button class="bg-custom text-white !rounded-button px-4 py-2 text-sm font-medium hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom">                        
-                        Add New Car
-                    </button>
+                    <a href="/show/all/queries" onclick="showLoader(event)" >
+                        <button class="bg-custom text-white !rounded-button px-4 py-2 text-sm font-medium hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom">                        
+                            Add New Car
+                        </button>
+                    </a> &nbsp;
+                    <a href="/admin/add-car" onclick="showLoader(event)" >
+                        <button class="bg-custom text-white !rounded-button px-4 py-2 text-sm font-medium hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom">                        
+                            Add New Car
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -38,11 +162,6 @@
                     <input type="text" id="searchInput" placeholder="Search cars..." class="pl-10 pr-4 py-2 border border-gray-300 !rounded-button focus:ring-custom focus:border-custom">                    
                     <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                 </div>                
-                <select class="border border-gray-300 !rounded-button focus:ring-custom focus:border-custom">
-                    <option>Sort by: Newest</option>
-                    <option>Sort by: Price Low to High</option>
-                    <option>Sort by: Price High to Low</option>                
-                </select>
             </div>
         </div>
 
@@ -57,16 +176,17 @@
                         <p class="text-sm text-gray-500 mb-2"><%= car.brand %></p>
                         <p class="text-xl font-bold text-custom mb-4">Rs. <%= car.pricePerDay %>/day</p>
                         <div class="flex justify-between">
-                            <a href="/admin/edit-car/<%= car._id %>">
+                            <a href="/admin/edit-car/<%= car._id %>" onclick="showLoader(event)" >
                                 <button class="bg-gray-100 text-gray-700 !rounded-button px-4 py-2 text-sm font-medium hover:bg-gray-200">                            
                                     <i class="fas fa-edit mr-2"></i>Edit
                                 </button>
                             </a>
-                            <form action="/admin/delete-car/<%= car._id %>_method=DELETE" method="POST" style="display:inline;">
-                                <button class="bg-red-50 text-red-600 !rounded-button px-4 py-2 text-sm font-medium hover:bg-red-100">                            
+                            <form action="/admin/delete-car/<%= car._id %>?_method=DELETE" method="POST" onsubmit="showLoaderOnSubmit()" style="display:inline;">
+                                <button type="submit" class="bg-red-50 text-red-600 !rounded-button px-4 py-2 text-sm font-medium hover:bg-red-100">                            
                                     <i class="fas fa-trash-alt mr-2"></i>Delete
                                 </button>
-                              </form>
+                            </form>
+                            
                         </div>                
                     </div>
                 </div>
@@ -82,8 +202,22 @@
             </button>        
         </div>
     </main>
+<script>
 
-    <script>
+function showLoader(event) {
+    event.preventDefault(); // Prevent immediate navigation
+    document.getElementById("loader").style.display = "block"; // Show loader
+
+    // Allow navigation after a short delay
+    setTimeout(() => {
+        window.location.href = event.target.closest('a').href;
+    }, 500); // Adjust delay if needed
+}
+
+function showLoaderOnSubmit() {
+    document.getElementById("loader").style.display = "block"; // Show loader
+}
+
         document.getElementById("searchInput").addEventListener("input", function () {
             let filter = this.value.toLowerCase();
             let cars = document.querySelectorAll(".car-card");
@@ -102,7 +236,20 @@
             // Show "No cars available" message if no cars match the search
             document.getElementById("empty-state").style.display = hasResults ? "none" : "block";
         });
-    </script>
 
+    document.addEventListener('DOMContentLoaded', function () {
+    const toasts = document.querySelectorAll('.flash-message');
+    toasts.forEach((toast) => {
+        setTimeout(() => {
+            toast.style.opacity = 0;
+            setTimeout(() => {
+                toast.remove();
+            }, 500);
+        }, 2000);
+    });
+});
+</script>
+<script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+<script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#F5BB1B" data-border-radius='medium'></script>
 </body>
 </html>

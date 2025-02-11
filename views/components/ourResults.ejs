@@ -1,39 +1,50 @@
-<div class="max-w-8xl mx-auto px-4 py-16">
-    <div class="text-center mb-12">            
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Amazing Cars</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how our solutions have transformed businesses and delivered exceptional outcomes for our clients worldwide.</p>
-    </div>        
-    <div class="relative overflow-hidden">
-        <div class="scroll-container flex animate-scroll hover:pause space-x-8 py-8">                
-            <div id="carList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">        
+ <div class="max-w-8xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">            
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Amazing Results</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how our solutions have transformed businesses and delivered exceptional outcomes for our clients worldwide.</p>
+        </div>        
+        <div class="relative overflow-hidden">
+            <div class="scroll-container flex animate-scroll hover:pause space-x-8 py-8">                
+
                 <% cars.forEach(car => { %>
-                    <div class="car-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" data-name="<%= car.name.toLowerCase() %>">
-                        <div class="aspect-w-16 aspect-h-10">                    
-                            <img src="<%= car.photo %>" class="object-cover rounded-t-lg" alt="<%= car.name %>">               
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-semibold text-gray-900"><%= car.name %></h3>                    
-                            <p class="text-sm text-gray-500 mb-2"><%= car.brand %></p>
-                            <p class="text-xl font-bold text-custom mb-4">Rs. <%= car.pricePerDay %>/day</p>
-                            <div class="flex justify-between">
-                                <a href="/admin/edit-car/<%= car._id %>">
-                                    <button class="bg-gray-100 text-gray-700 !rounded-button px-4 py-2 text-sm font-medium hover:bg-gray-200">                            
-                                        <i class="fas fa-edit mr-2"></i>Edit
-                                    </button>
-                                </a>
-                                <form action="/admin/delete-car/<%= car._id %>_method=DELETE" method="POST" style="display:inline;">
-                                    <button class="bg-red-50 text-red-600 !rounded-button px-4 py-2 text-sm font-medium hover:bg-red-100">                            
-                                        <i class="fas fa-trash-alt mr-2"></i>Delete
-                                    </button>
-                                  </form>
-                            </div>                
-                        </div>
-                    </div>
-                <% }) %>
+
+    <div class="block w-80 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">        
+        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+            <img src="<%= car.photo %>" 
+                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                 alt="BMW X5">        
+                </div>
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold text-gray-900"><%= car.name %></h3>
+                <div class="flex items-center">
+                    <i class="fab fa-bmw text-custom text-xl"></i>
+                </div>            
+            </div>
+            <div class="flex items-center text-gray-600 text-sm mb-4">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                <span><%= car.brand %></span>
+                <span class="mx-2">•</span>
+                <br> 
+                <span> Model: &nbsp; <%= car.year %></span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-baseline">                    <span class="text-2xl font-bold text-custom">₹ <%= car.pricePerDay %></span>
+                    <span class="text-gray-600 text-sm ml-1">/day</span>
+                </div>
+                <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-opacity-90 transition-colors">                    Book Now
+                </button>
             </div>
         </div>
     </div>
-</div>
+                <% }) %>
 
+                
 
+            </div>
+        </div>
+    </div>
 
+    
+
+   

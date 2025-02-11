@@ -37,56 +37,11 @@
       </div>
     </div>
   </nav>
+
   <main class="mt-16">
-    <section class="relative bg-gray-900 h-[600px]">
-      <div class="absolute inset-0">
-        <img src="https://creatie.ai/ai/api/search-image?query=A luxury car showroom interior with modern architecture, clean lines, and dramatic lighting. High-end vehicles are displayed on a polished floor with subtle reflections. The space features minimalist design elements and large windows&width=1440&height=600&orientation=landscape&flag=9e6f0acb-9fd7-4d52-ba55-2d4bb527737b&flag=f515cd12-f47c-481a-804d-1434ea32a912&flag=2f903aaf-7423-43bd-91a8-1726bec64d01&flag=184a3b77-b924-410e-ac7b-d51f5199faab&flag=91a1a4cb-f5a2-4726-b8cd-24374e1514d1&flag=85668f2c-c28c-4274-9f17-bafae79850ef&flag=155deaa6-8b54-4145-a647-27ff44b725c9&flag=389a06cb-fa6b-45fb-8f0f-d5def9eb290a&flag=ac74bc3c-9936-426f-b6b5-6946e9318e9f" class="w-full h-full object-cover" alt="Hero"/>
-        <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
-      </div>
-      <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Book Your Dream Car Today</h1>
-        <p class="mt-6 text-xl text-gray-300 max-w-3xl">Browse through our extensive collection of premium vehicles. From luxury sedans to sporty convertibles, we've got your perfect ride.</p>
-        
-        <div class="mt-10 bg-white p-6 rounded-lg shadow-xl max-w-4xl">
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Pick-up Location</label>
-              <div class="mt-1 relative">
-                <input type="text" class="block w-full border-gray-300 focus:ring-custom focus:border-custom" placeholder="Enter city or airport"/>
-                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-                  <i class="fas fa-map-marker-alt text-gray-400"></i>
-                </div>
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Pick-up Date</label>
-              <div class="mt-1 relative">
-                <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Return Date</label>
-              <div class="mt-1 relative">
-                <input type="date" class="block w-full border-gray-300 focus:ring-custom focus:border-custom"/>
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Car Type</label>
-              <select class="mt-1 block w-full border-gray-300 focus:ring-custom focus:border-custom">
-                <option>All Types</option>
-                <option>Luxury</option>
-                <option>SUV</option>
-                <option>Economy</option>
-              </select>
-            </div>
-          </div>
-          <div class="mt-6">
-            <button class="!rounded-button w-full bg-custom text-white px-4 py-2 text-lg font-medium">Find My Perfect Car <i class="fas fa-arrow-right ml-2"></i></button>
-          </div>
- </div>
-        </div>
-      </div>
-    </section>
+    
+    <%- include('components/carousel.ejs') %>
+
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-gray-900">Hot Deals <span class="text-custom">Today</span></h2>
@@ -96,64 +51,12 @@
               <ul class="glide__slides infinite-carousel">
                 <li class="glide__slide">
                   <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://creatie.ai/ai/api/search-image?query=A sleek luxury sedan photographed in a studio setting with pure white background&width=400&height=300&flag=0e6c6dac-33b8-45d8-ae34-35d27878fca2&flag=0d60aa73-5df5-4845-a4a9-01d7a4a840c5&flag=4199ef9b-2700-4fb0-87a4-49ec360cae1c&flag=c57646ba-8f1c-4861-befd-b55e488ded83&flag=43c8b902-0f5f-4165-8935-24d5d623ef81&flag=b17f2719-70f0-4b28-9001-afb9b567076b" class="w-full h-48 object-cover" alt="Car"/>
+                    <img src="data:image/jpeg;base64,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" class="w-50 h-50 object-cover alt="/car">
                     <div class="p-6">
-                      <h3 class="text-lg font-semibold text-gray-900">Mercedes-Benz E-Class</h3>
-                      <p class="mt-2 text-sm text-gray-600">Luxury Sedan with premium features</p>
-                      <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-custom">$89/day</span>
-                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://creatie.ai/ai/api/search-image?query=A modern SUV photographed in a studio setting&width=400&height=300&flag=64d0ac36-90bb-498b-98e6-02cda14f167a&flag=a17a3888-8774-4eae-ac16-fecc0dddbab2&flag=1346dafd-507c-468a-abe5-1d23dc6f9a87&flag=587def2d-76e5-4db8-aa17-03a9a73a94f6&flag=d30d0d56-c845-4dd5-87b7-703533e046ba&flag=9d56f04d-bd59-40c2-bf66-a1ec21573fa8" class="w-full h-48 object-cover" alt="Car"/>
-                    <div class="p-6">
-                      <h3 class="text-lg font-semibold text-gray-900">BMW X5</h3>
+                      <h3 class="text-lg font-semibold text-gray-900">Scorpio</h3>
                       <p class="mt-2 text-sm text-gray-600">Luxury SUV perfect for family trips</p>
                       <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-custom">$129/day</span>
-                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://creatie.ai/ai/api/search-image?query=A sporty convertible photographed in a studio setting&width=400&height=300&flag=0577a67f-73b2-4db3-8bd9-96ec48f5dcb5&flag=e2e032ac-7fcd-481d-b0da-d4936e1fcf09&flag=573fc4ba-3dad-42a1-8eae-5748c38bc5ce&flag=1dcb25e2-6025-427c- 8a53-ded70251ba62&flag=8961a1f2-8be9-40ec-a0c9-7b9a7302f246&flag=c98c904f-6920-4d47-a258-c7a58e9c4fef" class="w-full h-48 object-cover" alt="Car"/>
-                    <div class="p-6">
-                      <h3 class="text-lg font-semibold text-gray-900">Porsche 911 Cabrio</h3>
-                      <p class="mt-2 text-sm text-gray-600">Premium sports car experience</p>
-                      <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-custom">$199/day</span>
-                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://creatie.ai/ai/api/search-image?query=A Tesla Model S in studio setting&width=400&height=300&flag=5cea033c-c12c-43bf-9e9c-d84254c65155&flag=cd6ee5ce-01d4-4a38-820e-5f1a8e00779c&flag=a46ea332-1cdb-4196-a737-04e0859e121c&flag=6b2db027-1578-415b-a15c-c4b10eeaabe8&flag=73930cb1-f209-4c9d-9a25-5a0781189830&flag=e12e0aea-507a-49ec-b31a-09f2cf6b348a" class="w-full h-48 object-cover" alt="Car"/>
-                    <div class="p-6">
-                      <h3 class="text-lg font-semibold text-gray-900">Tesla Model S</h3>
-                      <p class="mt-2 text-sm text-gray-600">Electric luxury performance</p>
-                      <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-custom">$159/day</span>
-                        <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://creatie.ai/ai/api/search-image?query=An Audi RS7 in studio setting&width=400&height=300&flag=65881190-ee09-4491-9ea7-4b2c670526c5&flag=a5acc7b4-8e7b-4c70-9745-65780bed9953&flag=e5aba1fb-a570-490f-943e-0240b0726cf4&flag=138c4807-1181-4e52-96b9-92c0c24afd46&flag=ddf4bc65-75b4-4059-a8c9-8c2d728c21b6&flag=4471f8ec-fdf1-4cbf-8ac0-03e384d3b5f6" class="w-full h-48 object-cover" alt="Car"/>
-                    <div class="p-6">
-                      <h3 class="text-lg font-semibold text-gray-900">Audi RS7</h3>
-                      <p class="mt-2 text-sm text-gray-600">High-performance luxury sportback</p>
-                      <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-custom">$179/day</span>
+                        <span class="text-2xl font-bold text-custom">Rs 5500/day</span>
                         <button class="!rounded-button bg-custom text-white px-4 py-2 text-sm font-medium hover:bg-custom-dark transition duration-300">Book Now</button>
                       </div>
                     </div>
@@ -172,62 +75,16 @@
         </div>
       </div>
     </section>
-    <section class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900">Browse by Category</h2>
-        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://creatie.ai/ai/api/search-image?query=A compact economy car photographed in a studio setting with pure white background. The vehicle demonstrates practical design and efficiency. Professional lighting shows the car's modern features and clean lines&width=300&height=200&orientation=landscape&flag=b5613b02-b7c0-4677-881f-2b8ee031705a&flag=c33adb58-f5fd-44c0-827f-25fb62cdbd61&flag=6d357410-8a37-4d28-b7aa-6db9523f9729&flag=57f87af6-1e43-4938-819f-ed976da2f650&flag=1540584e-2a91-4262-a810-3048daf89256&flag=86c999f7-786e-44ba-bc3a-635912d0c5c4&flag=f4882333-2937-4404-b40b-75d60ecdb603&flag=fb4b3ff0-dfd6-4932-9b17-0f3e8513a40a&flag=bbd4c6dd-d599-4b5c-8eab-316d3e72cda3" class="w-full h-40 object-cover group-hover:opacity-75" alt="Economy"/>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold text-gray-900">Economy</h3>
-              <p class="mt-2 text-sm text-gray-600">Best value for money</p>
-              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-            </div>
-          </div>
-          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://creatie.ai/ai/api/search-image?query=A premium luxury sedan photographed in a studio setting with pure white background. The car exemplifies elegance and sophistication. Professional lighting emphasizes the vehicle's high-end features and pristine finish&width=300&height=200&orientation=landscape&flag=6aa18072-e48d-497f-9a70-bc918da34a47&flag=1ee7e83b-dcac-4df2-9997-41184641e3b1&flag=b8eeb15f-b59c-4f35-ab4a-cb32530fe3b3&flag=fd098c88-cfe8-4d20-9db5-20a4759e45cf&flag=362b5b36-e3d8-4c46-b9ff-e9a6ed02ed22&flag=47c43ed7-1d5a-44fb-9c96-12b85c5c6e03&flag=4ac05c5f-ba5c-45da-965f-74dd90884c39&flag=1b0f08b0-df4b-4d05-8e78-dbebd47e3d2d&flag=38774eaa-111a-4933-97fb-815b562a673b" class="w-full h-40 object-cover group-hover:opacity-75" alt="Luxury"/>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold text-gray-900">Luxury</h3>
-              <p class="mt-2 text-sm text-gray-600">Premium experience</p>
-              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-            </div>
-          </div>
-          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://creatie.ai/ai/api/search-image?query=A large SUV photographed in a studio setting with pure white background. The vehicle showcases spacious design and versatility. Professional lighting highlights the car's robust features and premium finish&width=300&height=200&orientation=landscape&flag=f393d5d6-a9f1-4c3d-a332-61c330398170&flag=dc54607d-2e4c-449b-925f-516ddefc8011&flag=e6a19367-40a5-41ac-9921-3b1f0696f69e&flag=90e9ab86-5e53-41a9-bcd0-66a0258be036&flag=f6a24eb2-e499-4e28-94da-ae4abfed5cb7&flag=b1d36077-5e08-4f28-8834-b183479c8299&flag=c2172b6f-2b8c-417f-afe4-996977c5638d&flag=a2139581-5514-4f14-909e-31a7d2f03415&flag=b0331913-ee9a-4bc9-b0f1-ce65bd9a1455" class="w-full h-40 object-cover group-hover:opacity-75" alt="SUV"/>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold text-gray-900">SUV</h3>
-              <p class="mt-2 text-sm text-gray-600">Space and comfort</p>
-              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-            </div>
-          </div>
-          <div class="group relative bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://creatie.ai/ai/api/search-image?query=A high-performance sports car photographed in a studio setting with pure white background. The vehicle demonstrates aggressive styling and aerodynamic design. Professional lighting emphasizes the car's sporty features and sleek finish&width=300&height=200&orientation=landscape&flag=52328aa5-6575-4f5a-bf3e-f09fbb11feed&flag=a18308d9-6316-45fe-ad34-3d40ad4a8516&flag=96984c2a-6ba4-4c21-80a0-6a448f0f254b&flag=7c0c5a78-d851-486d-8170-49dc1cd12267&flag=677e2c81-09cf-4c7b-a24a-16fb1275e890&flag=8f2edbe6-1a9e-4fe9-8eb9-77323559a586&flag=28d58ecf-7571-4f14-be19-eba4a32e5528&flag=f4219043-0482-4f0a-932c-9d7afce42db1&flag=42a1fefb-bf66-4e98-b2e2-addc7a342340" class="w-full h-40 object-cover group-hover:opacity-75" alt="Sports"/>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold text-gray-900">Sports</h3>
-              <p class="mt-2 text-sm text-gray-600">Pure excitement</p>
-              <button class="!rounded-button mt-4 w-full bg-custom text-white px-4 py-2 text-sm font-medium">View Cars</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
+    <section>
+      <%- include('components/ourCategories.ejs') %>
+    </section>
+   
     <section class="py-16 bg-white">
       <%- include('components/ourResults.ejs') %>
     </section>
 
-    <section class="py-16" id="map-section">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8">Our Location</h2>
-        <div class="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1357.6186243132224!2d77.3173210143393!3d28.36945951769569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1739290655138!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="mt-6">
-          <p class="text-lg text-gray-600"><i class="fas fa-map-marker-alt text-custom mr-2"></i>123 Rental Street, New York, NY 10001</p>
-          <p class="text-lg text -gray-600 mt-2"><i class="fas fa-clock text-custom mr-2"></i>Open Monday - Sunday: 8:00 AM - 8:00 PM</p>
-        </div>
-      </div>
-    </section>
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold text-gray-900">What Our Customers Say</h2>
       <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -304,6 +161,11 @@
     </button>
   </div>
 </main>
+
+<%- include('components/contactus.ejs') %>
+
+<%- include('components/ourLocation.ejs') %>
+
 <footer class="bg-gray-900">
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -358,6 +220,18 @@
     </div>
   </div>
 </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+            const forms = document.querySelectorAll("form[action*='?_method=DELETE']");
+            forms.forEach(form => {
+                form.addEventListener("submit", function(event) {
+                    if (!confirm("Are you sure you want to delete this car?")) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        });
+</script>
 <script src="js/ourResults.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
 <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
