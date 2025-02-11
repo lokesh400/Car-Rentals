@@ -148,7 +148,7 @@
 <body>
   <div class="form-container">
     <h1>Edit Car</h1>
-    <form action="/admin/update-car/<%= car._id %>" method="POST" enctype="multipart/form-data">
+    <form action="/admin/update-car/<%= car._id %>?_method=PUT" method="POST">
       <div class="form-group">
         <label for="name">Car Name:</label>
         <input type="text" name="name" id="name" value="<%= car.name %>" required>
@@ -169,31 +169,81 @@
         <input type="number" name="pricePerDay" id="pricePerDay" value="<%= car.pricePerDay %>" required>
       </div>
 
-      <div class="form-group">
-        <label for="file">Car Image:</label>
-        <input type="file" name="file" id="file">
-        <img src="<%= car.imageUrl %>" alt="Car Image" class="image-preview" id="imagePreview">
-      </div>
-
       <button type="submit">Update Car</button>
     </form>
   </div>
 
-  <script>
-    // Image preview functionality
-    const fileInput = document.getElementById('file');
-    const imagePreview = document.getElementById('imagePreview');
-
-    fileInput.addEventListener('change', function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          imagePreview.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-  </script>
 </body>
 </html>
+
+
+<div class="max-w-8xl mx-auto px-4 py-16">
+  <div class="text-center mb-12">            
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Amazing Results</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how our solutions have transformed businesses and delivered exceptional outcomes for our clients worldwide.</p>
+  </div>        <div class="relative overflow-hidden">
+      <div class="scroll-container flex animate-scroll hover:pause space-x-8 py-8">                
+          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
+                  <img src="https://creatie.ai/ai/api/search-image?query=A professional business team celebrating success in a modern office environment, showing genuine joy and achievement, with a clean white background and natural lighting&width=320&height=192&orientation=landscape&flag=29679353-c60a-4488-9bea-805faf0cc10d" class="w-full h-full object-cover" alt="Success story 1">                    
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">200% Revenue Growth</h3>
+              <p class="text-gray-600 mb-4">Achieved remarkable growth through strategic implementation of our solutions.</p>
+              <div class="flex items-center text-sm text-gray-500">                        
+                  <i class="fas fa-building mr-2"></i>
+                  <span>Tech Solutions Inc.</span>
+              </div>                
+          </div>
+
+          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
+                  <img src="https://creatie.ai/ai/api/search-image?query=A modern data visualization dashboard showing positive trends and metrics, with clean design and professional layout, on a light background&width=320&height=192&orientation=landscape&flag=f2bd073e-1300-43e1-9800-b5af679803bb" class="w-full h-full object-cover" alt="Success story 2">                    
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">50% Cost Reduction</h3>
+              <p class="text-gray-600 mb-4">Optimized operations leading to significant cost savings and improved efficiency.</p>
+              <div class="flex items-center text-sm text-gray-500">                       
+                   <i class="fas fa-industry mr-2"></i>
+                  <span>Manufacturing Pro</span>
+              </div>                
+          </div>
+
+          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
+                  <img src="https://creatie.ai/ai/api/search-image?query=A satisfied customer service team in a modern office setting, demonstrating excellent customer satisfaction scores on screens, with bright and clean environment&width=320&height=192&orientation=landscape&flag=7a4b3565-dfd2-4f4f-9fb2-70f7fbfde913" class="w-full h-full object-cover" alt="Success story 3">                    </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">98% Customer Satisfaction</h3>                    
+              <p class="text-gray-600 mb-4">Exceptional service delivery resulting in outstanding customer feedback.</p>
+              <div class="flex items-center text-sm text-gray-500">                        
+                  <i class="fas fa-store mr-2"></i>
+                  <span>Retail Giants</span>
+              </div>               
+           </div>
+
+          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
+                  <img src="https://creatie.ai/ai/api/search-image?query=A global network visualization showing worldwide connectivity and expansion, with modern design elements and clean background&width=320&height=192&orientation=landscape&flag=f961a565-c5e6-44dd-b408-9c493a63c63b" class="w-full h-full object-cover" alt="Success story 4">                    
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Global Expansion</h3>
+              <p class="text-gray-600 mb-4">Successfully expanded operations to 15 new international markets.</p>
+              <div class="flex items-center text-sm text-gray-500">                        
+                  <i class="fas fa-globe mr-2"></i>
+                  <span>Global Ventures Ltd</span>
+              </div>                
+          </div>
+
+          <div class="flex-none w-80 bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+              <div class="h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">                        
+                  <img src="https://creatie.ai/ai/api/search-image?query=An innovative tech workspace showing digital transformation success, with modern devices and clean workspace design&width=320&height=192&orientation=landscape&flag=29e9d742-3966-45c9-9365-8a13f0969b6d" class="w-full h-full object-cover" alt="Success story 5">                    
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Digital Transformation</h3>
+              <p class="text-gray-600 mb-4">Complete digital overhaul resulting in 300% productivity increase.</p>
+              <div class="flex items-center text-sm text-gray-500">                        
+                  <i class="fas fa-laptop mr-2"></i>
+                  <span>Digital Innovators</span>
+              </div>                
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

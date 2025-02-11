@@ -10,6 +10,7 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
+const methodOverride = require('method-override');
 
 const User = require('./models/user');
 const Car = require('./models/car');
@@ -44,6 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 const store = MongoStore.create({
   mongoUrl:process.env.mongo_url,
@@ -120,6 +122,11 @@ app.use("/",adminrouter);
 app.get("/", async (req,res)=>{
   const cars = await Car.find({});
     res.render("./index.ejs",{cars});
+})
+
+app.get("/all/cars", async (req,res)=>{
+  const cars = await Car.find({});
+    res.render("./allCars.ejs",{cars});
 })
 
 

@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
 
 const Car = require("../models/car");
 
@@ -85,11 +87,12 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
  });
  
  // Handle updating car details
- router.post('/admin/edit-car/:id', async (req, res) => {
+ router.put('/admin/update-car/:id', async (req, res) => {
    const { name, brand, year, pricePerDay } = req.body;
    try {
      await Car.findByIdAndUpdate(req.params.id, { name, brand, year, pricePerDay });
-     res.redirect('/admin');
+
+     res.redirect('/all/cars');
    } catch (err) {
      console.log(err);
      res.status(500).send('Server Error');
@@ -97,10 +100,10 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
  });
  
  // Delete car
- router.post('/admin/delete-car/:id', async (req, res) => {
+ router.delete('/admin/delete-car/:id', async (req, res) => {
    try {
      await Car.findByIdAndDelete(req.params.id);
-     res.redirect('/admin');
+     res.redirect('/all/cars');
    } catch (err) {
      console.log(err);
      res.status(500).send('Server Error');
