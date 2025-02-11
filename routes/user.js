@@ -17,6 +17,9 @@ function ensureAuthenticated(req, res, next) {
 
 // Login route
 router.get("/login", (req, res) => {
+    if(req.user){
+        res.redirect('/all/cars')
+    }
     req.flash('error_msg', 'Welcome back');
     res.render("./users/login.ejs");
 });

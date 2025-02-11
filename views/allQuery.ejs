@@ -1,1 +1,40 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queries List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/logo.jpg">
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-4xl font-bold text-gray-900 text-center mb-8">User Queries</h2>
+
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg p-6">
+            <table class="min-w-full border-collapse">
+                <thead>
+                    <tr class="bg-gray-800 text-white text-left">
+                        <th class="p-4">#</th>
+                        <th class="p-4">Name</th>
+                        <th class="p-4">Mobile</th>
+                        <th class="p-4">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% queries.forEach((query, index) => { %>
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="p-4"><%= index + 1 %></td>
+                            <td class="p-4 font-medium text-gray-800"><%= query.name %></td>
+                            <td class="p-4 text-gray-600"><%= query.mobile %></td>
+                            <td class="p-4 text-gray-500"><%= query.message %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

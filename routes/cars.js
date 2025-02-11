@@ -116,7 +116,7 @@ router.post('/admin/add-car', upload.single("file"), async (req, res) => {
  //All Queries 
  router.get("/show/all/queries", async (req,res)=>{
   const QUery = await Query.find({});
-    res.render("./allQuery.ejs",{Query});
+    res.render("./allQuery.ejs",{queries:Query});
 })
 
   module.exports = router;
